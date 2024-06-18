@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CharacterController
+  m_Name: AstronautCharacterController
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: AnimationPar
@@ -169,7 +169,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102945308341456978}
-    m_Position: {x: 324, y: 120, z: 0}
+    m_Position: {x: 320, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102490989349232182}
     m_Position: {x: 324, y: 12, z: 0}
