@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Highlight
   - Roof
+  - Room
   layers:
   - Default
   - TransparentFX
