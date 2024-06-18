@@ -32,15 +32,19 @@ public class agent : MonoBehaviour
 
     private void OnMouseOver()
     {
-        //turn on highlight colour
-        isMouseOver = true;
-        if(isMouseDown == false)
+        if (!CameraManager.Instance.isFirstPerson)
         {
-            newMaterials[0] = highlightMaterial;
-            newMaterials[1] = highlightMaterial;
-            newMaterials[2] = highlightMaterial;
-            _renderer.materials = newMaterials;
+            //turn on highlight colour
+            isMouseOver = true;
+            if (isMouseDown == false)
+            {
+                newMaterials[0] = highlightMaterial;
+                newMaterials[1] = highlightMaterial;
+                newMaterials[2] = highlightMaterial;
+                _renderer.materials = newMaterials;
+            }
         }
+        
        
     }
 
@@ -57,14 +61,18 @@ public class agent : MonoBehaviour
 
     private void OnMouseDown()
     {
-        // Turns on selected colour
-        newMaterials[0] = selectedMaterial;
-        newMaterials[1] = selectedMaterial;
-        newMaterials[2] = selectedMaterial;
-        _renderer.materials = newMaterials;
 
-        CrewManager.instance.selectUnit(transform);
-        isMouseDown = true;
+        if (!CameraManager.Instance.isFirstPerson)
+        {
+            // Turns on selected colour
+            newMaterials[0] = selectedMaterial;
+            newMaterials[1] = selectedMaterial;
+            newMaterials[2] = selectedMaterial;
+            _renderer.materials = newMaterials;
+
+            CrewManager.instance.selectUnit(transform);
+            isMouseDown = true;
+        }   
     }
 
     public void UnselectUnit()
@@ -83,7 +91,7 @@ public class agent : MonoBehaviour
         else
         {
             anim.SetInteger("AnimationPar", 0);
-            Debug.Log("has stopped");
+            
         }
     }
 }

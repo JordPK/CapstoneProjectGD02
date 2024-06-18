@@ -17,7 +17,7 @@ public class CameraManager : MonoBehaviour
     [SerializeField] float minFOV = 30;
     [SerializeField] float maxFOV = 80f;
 
-    [SerializeField] GameObject Roofs;
+    [SerializeField] List<GameObject> roofs;
 
     public bool isFirstPerson = false;
     void Awake()
@@ -34,6 +34,12 @@ public class CameraManager : MonoBehaviour
     void Start()
     {
         topDownCam.Priority = 1;
+
+        // finds all roofs on start 
+        roofs = new List<GameObject>(GameObject.FindGameObjectsWithTag("Roof"));
+        
+        // Set roofs default state
+        SetRoofs(false);
     }
 
     // Update is called once per frame
@@ -52,13 +58,22 @@ public class CameraManager : MonoBehaviour
         {
             isFirstPerson = true;
             fpsCam.Priority = 2;
-            Roofs.SetActive(true);
+            SetRoofs(true);
         }
         else if (isFirstPerson)
         {
             fpsCam.Priority = 0;
             isFirstPerson = false;
-            Roofs.SetActive(false);
+            SetRoofs(false);
+        }
+    }
+
+    void SetRoofs(bool isActive)
+    {
+        
+        foreach (GameObject roof in roofs)
+        {
+            roof.SetActive(isActive);
         }
     }
 
