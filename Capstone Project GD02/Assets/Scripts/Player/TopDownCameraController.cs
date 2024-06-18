@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class TopDownCameraController : MonoBehaviour
 {
 
-    [SerializeField] float moveSpeed;
-
     Touch theTouch;
     public Vector3 moveDirection, lookDirection;
     Vector3 touchStart, touchEnd;
@@ -18,17 +16,20 @@ public class TopDownCameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        DesktopInput();
-        //MobileInput();
-        //TouchInput();
-
-        transform.Translate(moveDirection * moveSpeed * Time.deltaTime, Space.World);
+        if (!CameraManager.Instance.isFirstPerson)
+        {
+            //DesktopInput();
+            MobileInput();
+            //TouchInput();
+            transform.Translate(moveDirection * CameraManager.Instance.cameraMoveSpeed * Time.deltaTime, Space.World);
+        }
+        
     }
 
     void DesktopInput()
@@ -36,17 +37,17 @@ public class TopDownCameraController : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        moveDirection = new Vector3(vertical, 0, horizontal).normalized;
+        moveDirection = new Vector3(horizontal, 0, vertical).normalized;
 
     }
 
     void MobileInput()
     {
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(0))
         {
             dpad.gameObject.SetActive(true);
 
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(0))
             {
                 touchStart = Input.mousePosition;
             }

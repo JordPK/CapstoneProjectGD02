@@ -11,7 +11,8 @@ public class CameraManager : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera topDownCam;
     [SerializeField] CinemachineVirtualCamera fpsCam;
 
-
+    [Header("Third Person Camera Controls")]
+    public float cameraMoveSpeed = 5;
     [SerializeField] float zoomSpeed;
     [SerializeField] float minFOV = 30;
     [SerializeField] float maxFOV = 80f;
