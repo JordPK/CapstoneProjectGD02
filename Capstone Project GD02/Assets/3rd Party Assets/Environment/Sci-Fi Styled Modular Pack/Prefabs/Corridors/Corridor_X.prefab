@@ -49,7 +49,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &498846
 Transform:
@@ -117,10 +117,10 @@ GameObject:
   - component: {fileID: 2322218}
   m_Layer: 0
   m_Name: floor_2_no_lattice_LOD0
-  m_TagString: Untagged
+  m_TagString: Roof
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &435662
 Transform:
@@ -201,10 +201,10 @@ GameObject:
   - component: {fileID: 20549158}
   m_Layer: 0
   m_Name: floor_2_no_lattice (3)
-  m_TagString: Untagged
+  m_TagString: Roof
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &435104
 Transform:
@@ -272,10 +272,10 @@ GameObject:
   - component: {fileID: 20525820}
   m_Layer: 0
   m_Name: floor_2_no_lattice (4)
-  m_TagString: Untagged
+  m_TagString: Roof
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &477244
 Transform:
@@ -343,10 +343,10 @@ GameObject:
   - component: {fileID: 2305226}
   m_Layer: 0
   m_Name: floor_2_no_lattice_LOD1
-  m_TagString: Untagged
+  m_TagString: Roof
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &425514
 Transform:
@@ -516,7 +516,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &476716
 Transform:
@@ -699,7 +699,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &434296
 Transform:
@@ -767,10 +767,10 @@ GameObject:
   - component: {fileID: 20568354}
   m_Layer: 0
   m_Name: floor_2_no_lattice (2)
-  m_TagString: Untagged
+  m_TagString: Roof
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &491076
 Transform:
@@ -841,7 +841,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &413668
 Transform:
@@ -1193,10 +1193,10 @@ GameObject:
   - component: {fileID: 2388154}
   m_Layer: 0
   m_Name: floor_2_no_lattice_LOD0
-  m_TagString: Untagged
+  m_TagString: Roof
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &461470
 Transform:
@@ -1280,7 +1280,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &422820
 Transform:
@@ -1460,10 +1460,10 @@ GameObject:
   - component: {fileID: 2304814}
   m_Layer: 0
   m_Name: floor_2_no_lattice_LOD0
-  m_TagString: Untagged
+  m_TagString: Roof
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &437400
 Transform:
@@ -1622,10 +1622,10 @@ GameObject:
   - component: {fileID: 2340116}
   m_Layer: 0
   m_Name: floor_2_no_lattice_LOD0
-  m_TagString: Untagged
+  m_TagString: Roof
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &451120
 Transform:
@@ -1781,7 +1781,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &458200
 Transform:
@@ -1852,7 +1852,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &428986
 Transform:
@@ -1937,7 +1937,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &403602
 Transform:
@@ -2138,10 +2138,10 @@ GameObject:
   - component: {fileID: 2312264}
   m_Layer: 0
   m_Name: floor_2_no_lattice_LOD1
-  m_TagString: Untagged
+  m_TagString: Roof
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &453934
 Transform:
@@ -2308,10 +2308,10 @@ GameObject:
   - component: {fileID: 2389534}
   m_Layer: 0
   m_Name: floor_2_no_lattice_LOD1
-  m_TagString: Untagged
+  m_TagString: Roof
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &442710
 Transform:
@@ -2392,10 +2392,10 @@ GameObject:
   - component: {fileID: 2388246}
   m_Layer: 0
   m_Name: floor_2_no_lattice_LOD1
-  m_TagString: Untagged
+  m_TagString: Roof
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &440692
 Transform:
@@ -2656,7 +2656,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &449354
 Transform:
@@ -2741,7 +2741,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &413214
 Transform:
@@ -3082,7 +3082,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &497356
 Transform:
@@ -3154,7 +3154,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &447630
 Transform:
@@ -3249,10 +3249,10 @@ GameObject:
   - component: {fileID: 20545322}
   m_Layer: 0
   m_Name: floor_2_no_lattice
-  m_TagString: Untagged
+  m_TagString: Roof
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &420426
 Transform:
@@ -3407,7 +3407,7 @@ GameObject:
   - component: {fileID: 6554176}
   m_Layer: 0
   m_Name: floor_5 (1)
-  m_TagString: Untagged
+  m_TagString: Roof
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3508,7 +3508,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &444000
 Transform:
