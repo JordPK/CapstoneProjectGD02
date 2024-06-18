@@ -6,7 +6,7 @@ public class ShipPartManager : MonoBehaviour
 {
 
     public static ShipPartManager Instance { get; private set; }
-
+    
 
     void Awake()
     {
