@@ -1,17 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class FPSPlayerMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] float moveSpeed = 5f;
-    float normalMoveSpeed;
+   
    
     [SerializeField] float sprintSpeedMultiplier;
     [SerializeField] float jumpForce = 5f;
-    public CharacterController characterController;
+    [SerializeField] float gravityMultiplier;
+   [SerializeField] CharacterController characterController;
     [SerializeField] Camera fpsCam;
+
+    CapsuleCollider capsuleCollider;
+    NavMeshAgent agent;
     
 
     [Header("Physics Settings")]
@@ -22,15 +27,29 @@ public class FPSPlayerMovement : MonoBehaviour
 
     private void Start()
     {
-       
-        normalMoveSpeed = moveSpeed;
+       capsuleCollider = GetComponent<CapsuleCollider>();
+        agent = GetComponent<NavMeshAgent>();
+        fpsCam = FindAnyObjectByType<Camera>();
+        gravity *= gravityMultiplier;
+        
     }
 
     void Update()
     {
-        Move();
+        if (CameraManager.Instance.isFirstPerson)
+        {
+            agent.enabled = false;
+            capsuleCollider.enabled = false;
+            characterController.enabled = true;
+            Move();
+        }
+        else
+        {
+            agent.enabled = true;
+            characterController.enabled = false;
+            capsuleCollider.enabled = true;
+        }
         
-
     }
 
     private void Move()
@@ -43,11 +62,11 @@ public class FPSPlayerMovement : MonoBehaviour
         }
 
         // Get input for movement
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
         // Calculate movement direction
-        Vector3 move = transform.right * moveX + transform.forward * moveZ;
+        Vector3 move = transform.right * horizontal + transform.forward * vertical;
         characterController.Move(move * moveSpeed * Time.deltaTime);
 
         // Jumping

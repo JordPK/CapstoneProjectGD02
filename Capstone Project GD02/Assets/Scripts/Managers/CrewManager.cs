@@ -30,16 +30,9 @@ public class CrewManager : MonoBehaviour
 
         // Update is called once per frame
         void Update()
-    {
-
-        //if (!CameraManager.Instance.isFirstPerson)
-
         {
-            moveUnit();
-                
+            moveUnit();     
         }
-
-    }
 
     public void selectUnit(Transform unit)
     {
