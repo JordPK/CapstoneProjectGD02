@@ -7,7 +7,7 @@ public class Crew : MonoBehaviour
 {
     public float roomRange = 10f;
     public Room room_;
-    public GameManager gm_;
+   
     protected NavMeshAgent agent;
     protected bool hasArrived = false;
     private bool isInRange = false;
@@ -61,6 +61,15 @@ public class Crew : MonoBehaviour
             }
         }
         return closestRoom;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        OnArrivedAtDestination();
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        OnArrivedAtDestination();
     }
 }
 
