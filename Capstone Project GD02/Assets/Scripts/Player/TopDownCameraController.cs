@@ -24,9 +24,13 @@ public class TopDownCameraController : MonoBehaviour
     {
         if (!CameraManager.Instance.isFirstPerson)
         {
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
             DesktopInput();
             //MobileInput();
+
+#elif UNITY_ANDROID
             //TouchInput();
+#endif
             transform.Translate(moveDirection * CameraManager.Instance.cameraMoveSpeed * Time.deltaTime, Space.World);
         }
         
