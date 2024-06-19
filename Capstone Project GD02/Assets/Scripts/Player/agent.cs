@@ -78,12 +78,12 @@ public class agent : MonoBehaviour
        if(_agent.velocity != Vector3.zero)
         {
             anim.SetInteger("AnimationPar", 1);
-            Debug.Log("is moving");
+            
         }
         else
         {
             anim.SetInteger("AnimationPar", 0);
-            Debug.Log("has stopped");
+          
         }
     }
 }
