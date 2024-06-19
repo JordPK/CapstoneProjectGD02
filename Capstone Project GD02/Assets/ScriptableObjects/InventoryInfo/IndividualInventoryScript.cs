@@ -4,17 +4,5 @@ using UnityEngine;
 
 public class IndividualInventoryScript : MonoBehaviour
 {
-    public InventoryInfo individualInventory;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int[] inventory = new int[5];
 }
