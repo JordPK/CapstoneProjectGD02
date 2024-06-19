@@ -77,7 +77,9 @@ public class agent : MonoBehaviour
 
     public void UnselectUnit()
     {
+        
         _renderer.materials = defaultMaterials;
+        CrewManager.instance.selection = null;
         isMouseDown = false;
     }
 

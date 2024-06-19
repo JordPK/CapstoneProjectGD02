@@ -8,14 +8,17 @@ public class CameraManager : MonoBehaviour
 
     public static CameraManager Instance {  get; private set; }
 
-    [SerializeField] CinemachineVirtualCamera topDownCam;
-    [SerializeField] CinemachineVirtualCamera fpsCam;
+    public CinemachineVirtualCamera topDownCam;
+    public CinemachineVirtualCamera fpsCam;
 
     [Header("Third Person Camera Controls")]
     public float cameraMoveSpeed = 5;
     [SerializeField] float zoomSpeed;
     [SerializeField] float minFOV = 30;
     [SerializeField] float maxFOV = 80f;
+
+    [Header("First Person Camera Controls")]
+    public float FPSCamSensitivity;
 
     [SerializeField] List<GameObject> roofs;
 
@@ -29,8 +32,6 @@ public class CameraManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
-
-    // Start is called before the first frame update
     void Start()
     {
         topDownCam.Priority = 1;
@@ -42,7 +43,6 @@ public class CameraManager : MonoBehaviour
         SetRoofs(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.V))
