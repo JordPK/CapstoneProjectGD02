@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Highlight
+  - Roof
+  - FoodConsole
+  - WaterConsole
+  - FuelConsole
+  - MedicalConsole
+  - AmmoConsole
   layers:
   - Default
   - TransparentFX
@@ -12,7 +18,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Interactable
   - 
   - 
   - 
