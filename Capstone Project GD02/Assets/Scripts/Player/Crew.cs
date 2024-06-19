@@ -62,6 +62,15 @@ public class Crew : MonoBehaviour
         }
         return closestRoom;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        OnArrivedAtDestination();
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        OnArrivedAtDestination();
+    }
 }
 
 
