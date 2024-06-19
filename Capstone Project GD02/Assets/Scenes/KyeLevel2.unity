@@ -606,6 +606,7 @@ Transform:
   - {fileID: 2091323000}
   - {fileID: 539244215}
   - {fileID: 344311743}
+  - {fileID: 426080133}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -793,6 +794,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e7738fecf1794266bf527c74e9451ed, type: 3}
+--- !u!1 &426080132
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 426080133}
+  - component: {fileID: 426080134}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &426080133
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426080132}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 382943870}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &426080134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426080132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef564a697dbfae48b4b0ec7b4632b60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &539244214
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,6 +882,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19d933440e7864d438e201fd8bded474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenuScreen: {fileID: 0}
+  newGameScreen: {fileID: 0}
+  mainMenuOptionsScreen: {fileID: 0}
 --- !u!1001 &551422045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1602,6 +1650,7 @@ MonoBehaviour:
   zoomSpeed: 0
   minFOV: 30
   maxFOV: 80
+  FPSCamSensitivity: 60
   roofs: []
   isFirstPerson: 0
 --- !u!1 &1637247500
@@ -1916,6 +1965,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eab538714719a947817bc47b2ed7380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  food: 0
+  water: 0
+  medicalSupplies: 0
+  ammo: 0
+  fuel: 0
 --- !u!1 &2007325024
 GameObject:
   m_ObjectHideFlags: 0
