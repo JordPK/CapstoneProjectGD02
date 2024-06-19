@@ -6,16 +6,16 @@ public class FaceCamera : MonoBehaviour
     private CinemachineVirtualCamera mainCamera;
     void Update()
     {
+
         
-           // UNCOMMENT THIS WHEN MADE PUBLIC AFTER JORDAN PUSHES
-       /* if (CameraManager.Instance.isFirstPerson)
+        if (CameraManager.Instance.isFirstPerson)
         {
             mainCamera = CameraManager.Instance.fpsCam;
         }
         else
         {
             mainCamera = CameraManager.Instance.topDownCam;
-        }*/
+        }
 
     }
 
