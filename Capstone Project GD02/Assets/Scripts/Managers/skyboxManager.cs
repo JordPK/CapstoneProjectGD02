@@ -15,8 +15,8 @@ public class skyboxManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        
+        skyboxMaterial.SetFloat("_Rotation", rotationAngle);
+
     }
 
     // Update is called once per frame
