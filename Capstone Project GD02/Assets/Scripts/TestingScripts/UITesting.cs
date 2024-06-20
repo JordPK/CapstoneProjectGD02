@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class UITesting : MonoBehaviour
 {
-    public GameObject crewMember, storage, airlock, crewInventoryUI, storageInventoryUI, confirmButton, confirmEjectButton;
+    public GameObject crewMember, storage, airlock, crewInventoryUI, storageInventoryUI, confirmButton, confirmEjectButton, itemCountButtons;
     public int itemCount = 1;
 
 
@@ -23,8 +23,13 @@ public class UITesting : MonoBehaviour
         crewMember.GetComponent<IndividualInventoryScript>().inventory[0] += 3;
     }
 
+    public void ChangeItemCount(int value)
+    {
+        itemCount = value;
+    }
+
     //updates the inventory with the copied values and displays it
-    public void ShowInventory()
+    public void PopulateInventory()
     {
         //calls the inventory manager function that copies the inventories over to a temporary array
         InventoryManager.Instance.LoadAndCopyInventories(crewMember, storage);
@@ -34,6 +39,7 @@ public class UITesting : MonoBehaviour
         crewInventoryUI.SetActive(true);
         storageInventoryUI.SetActive(true);
         confirmButton.SetActive(true);
+        itemCountButtons.SetActive(true);
     }
 
     public void ShowEjection()
@@ -44,6 +50,7 @@ public class UITesting : MonoBehaviour
         crewInventoryUI.SetActive(true);
         storageInventoryUI.SetActive(true);
         confirmEjectButton.SetActive(true);
+        itemCountButtons.SetActive(true);
     }
 
     //controls the crew to storage transfers when the player clicks on the left hand side inventory
@@ -68,6 +75,7 @@ public class UITesting : MonoBehaviour
         crewInventoryUI.SetActive(false);
         storageInventoryUI.SetActive(false);
         confirmButton.SetActive(false);
+        itemCountButtons.SetActive(false);
     }
 
     public void ConfirmEjection()
@@ -77,6 +85,7 @@ public class UITesting : MonoBehaviour
         crewInventoryUI.SetActive(false);
         storageInventoryUI.SetActive(false);
         confirmEjectButton.SetActive(false);
+        itemCountButtons.SetActive(false);
     }
 
     //updates the UI inventory numbers to reflect the temporary inventories in the inventory manager
