@@ -44,8 +44,6 @@ public class agent : MonoBehaviour
                 _renderer.materials = newMaterials;
             }
         }
-        
-       
     }
 
 
