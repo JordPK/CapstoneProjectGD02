@@ -33,9 +33,11 @@ public class PlayerInteraction : MonoBehaviour
         }
 
     }
-
     void FindInteractable()
     {
+
+        
+
         // raycast sent from center of screen because mouse position is locked.
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
