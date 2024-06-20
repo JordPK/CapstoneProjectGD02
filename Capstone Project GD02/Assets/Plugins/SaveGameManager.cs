@@ -39,7 +39,7 @@ public class SaveGameManager : MonoBehaviour
 
 
 
-    void Start()
+    /*void Start()
     {
         // Example usage: 
         // Typically, you will be using SaveGameManager.<insert one of the lines below> 
@@ -50,5 +50,5 @@ public class SaveGameManager : MonoBehaviour
         SaveString("name.txt", "playerName", "john doe");
         SaveVector3("pos.txt", "playerPosition", transform.position.x, transform.position.y, transform.position.z); 
            
-    }
+    }*/
 }
