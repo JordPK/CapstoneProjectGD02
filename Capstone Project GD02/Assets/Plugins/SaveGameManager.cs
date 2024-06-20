@@ -44,11 +44,11 @@ public class SaveGameManager : MonoBehaviour
         // Example usage: 
         // Typically, you will be using SaveGameManager.<insert one of the lines below> 
         //SaveGameManager.SaveFloat("CameraSettings.txt", "FPSCamSensitivity", FPSCamSensitivity);
-        SaveBool("savegame.txt", "roomEjected", true);
-        SaveFloat("savegame.txt", "FPSCameraSens", 6.2f);
-        SaveInt("savegame.txt", "MaxCrew", 2);
-        SaveString("savegame.txt", "playerName", "john doe");
-        SaveVector3("savegame.txt", "playerPosition", transform.position.x, transform.position.y, transform.position.z); 
+        SaveBool("XroomEjected.txt", "roomEjected", true);
+        SaveFloat("camSettings.txt", "FPSCameraSens", 6.2f);
+        SaveInt("crewCap.txt", "maxCrew", 2);
+        SaveString("name.txt", "playerName", "john doe");
+        SaveVector3("pos.txt", "playerPosition", transform.position.x, transform.position.y, transform.position.z); 
            
     }
 }

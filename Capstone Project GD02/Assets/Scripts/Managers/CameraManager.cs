@@ -41,6 +41,7 @@ public class CameraManager : MonoBehaviour
         
         // Set roofs default state
         SetRoofs(false);
+        //only changes are here to proove save loading works lmao 
         Debug.Log(Application.persistentDataPath);
         //SaveGameManager.SaveFloat(Application.persistentDataPath + "/CameraSettings.txt", "FPSCamSensitivity", FPSCamSensitivity);
         string test = Application.persistentDataPath + "/CameraSettings.txt";
