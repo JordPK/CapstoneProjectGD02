@@ -66,6 +66,7 @@ public class CameraManager : MonoBehaviour
             isFirstPerson = true;
             fpsCam.Priority = 2;
             SetRoofs(true);
+            
         }
         else if (isFirstPerson)
         {

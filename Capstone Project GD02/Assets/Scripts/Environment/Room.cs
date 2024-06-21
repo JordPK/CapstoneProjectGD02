@@ -58,8 +58,10 @@ public class Room : MonoBehaviour
     public void RoomDetached()
     {
         Debug.Log("Room detaching all crew members and dead.");
+
+
         //temporary addtion to save cam sens to proove save will work in with whatever we want lol
-        SaveGameManager.SaveFloat(Application.persistentDataPath + "/CameraSettings.txt", "FPSCamSensitivity", CameraManager.Instance.FPSCamSensitivity);
+        //SaveGameManager.SaveFloat(Application.persistentDataPath + "/CameraSettings.txt", "FPSCamSensitivity", CameraManager.Instance.FPSCamSensitivity);  // NEEDS TO BE FIXED
         // Destroy all crew members in the room
         foreach (Crew crewMember in crewMembers)
         {
