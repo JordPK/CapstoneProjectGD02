@@ -164,7 +164,7 @@ MonoBehaviour:
   maxCrew: 5
   crewMembers: []
   roomEjected: 0
-  roomWeight: 0
+  roomWeight: 200
 --- !u!65 &4018964064084145918
 BoxCollider:
   m_ObjectHideFlags: 0
