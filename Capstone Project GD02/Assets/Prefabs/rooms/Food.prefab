@@ -8552,7 +8552,7 @@ MonoBehaviour:
   maxCrew: 5
   crewMembers: []
   roomEjected: 0
-  roomWeight: 0
+  roomWeight: 175
 --- !u!65 &209195553856289258
 BoxCollider:
   m_ObjectHideFlags: 0
