@@ -153,6 +153,7 @@ GameObject:
   - component: {fileID: 8891975397783103560}
   - component: {fileID: 7276523892695232725}
   - component: {fileID: 3580644406936187595}
+  - component: {fileID: 3707156582601514736}
   m_Layer: 0
   m_Name: AirLock
   m_TagString: Room
@@ -223,6 +224,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8.21, y: 1, z: 13.7}
   m_Center: {x: -4.76, y: 0.18, z: 0}
+--- !u!114 &3707156582601514736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899031482782899953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 243ea9b4eab7b814fac4033f713bbcfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: 0000000000000000000000000000000000000000
 --- !u!1 &3086796718539475425
 GameObject:
   m_ObjectHideFlags: 0
