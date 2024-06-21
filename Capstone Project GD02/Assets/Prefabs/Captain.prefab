@@ -985,6 +985,7 @@ MonoBehaviour:
   moveSpeed: 5
   sprintSpeedMultiplier: 0
   jumpForce: 5
+  gravityMultiplier: 0
   characterController: {fileID: 1666918785868686385}
   fpsCam: {fileID: 0}
   gravity: -9.81
@@ -1000,7 +1001,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae369578e9363f4aaba159668f7ecaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionRange: 10
+  FPSinteractionRange: 4
+  RTSinteractionRange: 99999
   interactableLayer:
     serializedVersion: 2
     m_Bits: 64
