@@ -6,6 +6,7 @@ public class Room : MonoBehaviour
     public int maxCrew = 2;
     public List<Crew> crewMembers;
     public bool roomEjected = false;
+    public int roomWeight;
 
     void Start()
     {
@@ -68,12 +69,9 @@ public class Room : MonoBehaviour
                 Debug.Log("Destroyed crew member: " + crewMember.name);
             }
         }
-<<<<<<< Updated upstream
-=======
-        //-------------------UNCOMMENT WHEN INTEGRATED-------------------
         WeightManager.Instance.rooms.Remove(this);
         WeightManager.Instance.reduceWeight(roomWeight);
->>>>>>> Stashed changes
+
 
         // Clear the crew list
         crewMembers.Clear();
