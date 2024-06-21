@@ -68,6 +68,12 @@ public class Room : MonoBehaviour
                 Debug.Log("Destroyed crew member: " + crewMember.name);
             }
         }
+<<<<<<< Updated upstream
+=======
+        //-------------------UNCOMMENT WHEN INTEGRATED-------------------
+        WeightManager.Instance.rooms.Remove(this);
+        WeightManager.Instance.reduceWeight(roomWeight);
+>>>>>>> Stashed changes
 
         // Clear the crew list
         crewMembers.Clear();

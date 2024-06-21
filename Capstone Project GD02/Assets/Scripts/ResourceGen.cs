@@ -59,7 +59,13 @@ public class ResourceGen : MonoBehaviour
     {
         yield return new WaitForSeconds(foodWaitTime);
         ResourceManager.Instance.food += foodIncrease;
+<<<<<<< Updated upstream
        // Debug.Log(ResourceManager.Instance.food + "Food");
+=======
+        gameObject.GetComponent<IndividualInventoryScript>().inventory[0] += foodIncrease;
+        //-------------------UNCOMMENT WHEN INTEGRATED-------------------
+        WeightManager.Instance.addResourceWeight(foodIncrease, WeightManager.Instance.foodWeight);
+>>>>>>> Stashed changes
         StartCoroutine(Food());
     }
 
@@ -67,7 +73,13 @@ public class ResourceGen : MonoBehaviour
     {
         yield return new WaitForSeconds(waterWaitTime);
         ResourceManager.Instance.water += waterIncrease;
+<<<<<<< Updated upstream
         // Debug.Log(ResourceManager.Instance.water + "Water");
+=======
+        gameObject.GetComponent<IndividualInventoryScript>().inventory[1] += waterIncrease;
+        //-------------------UNCOMMENT WHEN INTEGRATED-------------------
+        WeightManager.Instance.addResourceWeight(waterIncrease, WeightManager.Instance.waterWeight);
+>>>>>>> Stashed changes
         StartCoroutine(Water());
     }
 
@@ -75,7 +87,13 @@ public class ResourceGen : MonoBehaviour
     {
         yield return new WaitForSeconds(medicalWaitTime);
         ResourceManager.Instance.medicalSupplies += medicalIncrease;
+<<<<<<< Updated upstream
        // Debug.Log(ResourceManager.Instance.medicalSupplies + " Medical");
+=======
+        gameObject.GetComponent<IndividualInventoryScript>().inventory[2] += medicalIncrease;
+        //-------------------UNCOMMENT WHEN INTEGRATED-------------------
+        WeightManager.Instance.addResourceWeight(medicalIncrease, WeightManager.Instance.medicalWeight);
+>>>>>>> Stashed changes
         StartCoroutine(Medical());
     }
 
@@ -83,7 +101,13 @@ public class ResourceGen : MonoBehaviour
     {
         yield return new WaitForSeconds(ammoWaitTime);
         ResourceManager.Instance.ammo += ammoIncrease;
+<<<<<<< Updated upstream
         //Debug.Log(ResourceManager.Instance.ammo + "Ammo");
+=======
+        gameObject.GetComponent<IndividualInventoryScript>().inventory[3] += ammoIncrease;
+        //-------------------UNCOMMENT WHEN INTEGRATED-------------------
+        WeightManager.Instance.addResourceWeight(ammoIncrease, WeightManager.Instance.ammoWeight);
+>>>>>>> Stashed changes
         StartCoroutine(Ammo());
     }
 
@@ -91,7 +115,13 @@ public class ResourceGen : MonoBehaviour
     {
         yield return new WaitForSeconds(fuelWaitTime);
         ResourceManager.Instance.fuel += fuelIncrease;
+<<<<<<< Updated upstream
         //Debug.Log(ResourceManager.Instance.fuel + "Fuel");
+=======
+        gameObject.GetComponent<IndividualInventoryScript>().inventory[4] += fuelIncrease;
+        //-------------------UNCOMMENT WHEN INTEGRATED-------------------
+        WeightManager.Instance.addResourceWeight(fuelIncrease, WeightManager.Instance.fuelWeight);
+>>>>>>> Stashed changes
         StartCoroutine(Fuel());
     }
 }
