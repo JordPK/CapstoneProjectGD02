@@ -67,6 +67,8 @@ GameObject:
   - component: {fileID: 6798753577196472626}
   - component: {fileID: 949217345113972310}
   - component: {fileID: -1662875247547135088}
+  - component: {fileID: 3437096096623874582}
+  - component: {fileID: 7763935034282153496}
   m_Layer: 0
   m_Name: GeneratorRoom
   m_TagString: Room
@@ -177,6 +179,41 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 27.522804, y: 0.74, z: 18.015007}
   m_Center: {x: 11.941402, y: -0.6, z: -8.197502}
+--- !u!114 &3437096096623874582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5816350129710301663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 243ea9b4eab7b814fac4033f713bbcfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: 0000000000000000000000000000000000000000
+--- !u!114 &7763935034282153496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5816350129710301663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4832aa97fdbc14b9c8279526b56d4b75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodWaitTime: 0
+  waterWaitTime: 0
+  medicalWaitTime: 0
+  ammoWaitTime: 0
+  fuelWaitTime: 0
+  foodIncrease: 0
+  waterIncrease: 0
+  medicalIncrease: 0
+  ammoIncrease: 0
+  fuelIncrease: 0
 --- !u!1 &7826264240418466395
 GameObject:
   m_ObjectHideFlags: 0

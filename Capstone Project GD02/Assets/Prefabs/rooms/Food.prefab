@@ -8430,6 +8430,8 @@ GameObject:
   - component: {fileID: 70336737048496162}
   - component: {fileID: -8699947799634428018}
   - component: {fileID: 209195553856289258}
+  - component: {fileID: 1395772508482245518}
+  - component: {fileID: 840721832292327514}
   m_Layer: 0
   m_Name: Food
   m_TagString: Room
@@ -8563,6 +8565,41 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 20, y: 0.63398737, z: 25}
   m_Center: {x: 4.92, y: -0.6830063, z: 6.549999}
+--- !u!114 &1395772508482245518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70336737048496165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4832aa97fdbc14b9c8279526b56d4b75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodWaitTime: 0
+  waterWaitTime: 0
+  medicalWaitTime: 0
+  ammoWaitTime: 0
+  fuelWaitTime: 0
+  foodIncrease: 0
+  waterIncrease: 0
+  medicalIncrease: 0
+  ammoIncrease: 0
+  fuelIncrease: 0
+--- !u!114 &840721832292327514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70336737048496165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 243ea9b4eab7b814fac4033f713bbcfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: 0000000000000000000000000000000000000000
 --- !u!1 &70336737119157215
 GameObject:
   m_ObjectHideFlags: 0
