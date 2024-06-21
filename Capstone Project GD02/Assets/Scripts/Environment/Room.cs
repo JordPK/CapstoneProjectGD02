@@ -7,6 +7,8 @@ public class Room : MonoBehaviour
     public List<Crew> crewMembers;
     public bool roomEjected = false;
 
+
+    public int roomWeight = 250;
     void Start()
     {
         crewMembers = new List<Crew>();
@@ -52,6 +54,7 @@ public class Room : MonoBehaviour
         {
             Debug.Log("Bonus applied for crew member: " + crewMember.name);
         }
+        gameObject.GetComponent<ResourceGen>().crewMultiplier = 1 - (0.1f * crewMembers.Count);
     }
 
     public void RoomDetached()
@@ -68,6 +71,9 @@ public class Room : MonoBehaviour
                 Debug.Log("Destroyed crew member: " + crewMember.name);
             }
         }
+        //-------------------UNCOMMENT WHEN INTEGRATED-------------------
+        //WeightManager.Instance.rooms.Remove(this);
+        //WeightManager.Instance.reduceWeight(roomWeight);
 
         // Clear the crew list
         crewMembers.Clear();

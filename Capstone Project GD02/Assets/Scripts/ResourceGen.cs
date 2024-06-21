@@ -18,6 +18,8 @@ public class ResourceGen : MonoBehaviour
     public int ammoIncrease;
     public int fuelIncrease;
 
+    public float crewMultiplier = 1;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +34,7 @@ public class ResourceGen : MonoBehaviour
             StartCoroutine(Water());
         }
 
-        if (gameObject.name.Contains("Medical"))
+        if (gameObject.name.Contains("Medbay"))
         {
             StartCoroutine(Medical());
         }
@@ -42,7 +44,7 @@ public class ResourceGen : MonoBehaviour
             StartCoroutine(Ammo());
         }
 
-        if (gameObject.name.Contains("Fuel"))
+        if (gameObject.name.Contains("Generator"))
         {
             StartCoroutine(Fuel());
         }
@@ -57,41 +59,51 @@ public class ResourceGen : MonoBehaviour
 
     IEnumerator Food()
     {
-        yield return new WaitForSeconds(foodWaitTime);
+        yield return new WaitForSeconds(foodWaitTime * crewMultiplier);
         ResourceManager.Instance.food += foodIncrease;
-       // Debug.Log(ResourceManager.Instance.food + "Food");
+        gameObject.GetComponent<IndividualInventoryScript>().inventory[0] += foodIncrease;
+        //-------------------UNCOMMENT WHEN INTEGRATED-------------------
+        //WeightManager.Instance.addResourceWeight(foodIncrease, WeightManager.Instance.foodWeight);
         StartCoroutine(Food());
     }
 
     IEnumerator Water()
     {
-        yield return new WaitForSeconds(waterWaitTime);
+        yield return new WaitForSeconds(waterWaitTime * crewMultiplier);
         ResourceManager.Instance.water += waterIncrease;
-        // Debug.Log(ResourceManager.Instance.water + "Water");
+        gameObject.GetComponent<IndividualInventoryScript>().inventory[1] += waterIncrease;
+        //-------------------UNCOMMENT WHEN INTEGRATED-------------------
+        //WeightManager.Instance.addResourceWeight(waterIncrease, WeightManager.Instance.waterWeight);
         StartCoroutine(Water());
     }
 
     IEnumerator Medical()
     {
-        yield return new WaitForSeconds(medicalWaitTime);
+        yield return new WaitForSeconds(medicalWaitTime * crewMultiplier);
         ResourceManager.Instance.medicalSupplies += medicalIncrease;
-       // Debug.Log(ResourceManager.Instance.medicalSupplies + " Medical");
+        gameObject.GetComponent<IndividualInventoryScript>().inventory[2] += medicalIncrease;
+        //-------------------UNCOMMENT WHEN INTEGRATED-------------------
+        //WeightManager.Instance.addResourceWeight(medicalIncrease, WeightManager.Instance.medicalWeight);
         StartCoroutine(Medical());
     }
 
     IEnumerator Ammo()
     {
-        yield return new WaitForSeconds(ammoWaitTime);
+        yield return new WaitForSeconds(ammoWaitTime * crewMultiplier);
         ResourceManager.Instance.ammo += ammoIncrease;
-        //Debug.Log(ResourceManager.Instance.ammo + "Ammo");
+        gameObject.GetComponent<IndividualInventoryScript>().inventory[3] += ammoIncrease;
+        //-------------------UNCOMMENT WHEN INTEGRATED-------------------
+        //WeightManager.Instance.addResourceWeight(ammoIncrease, WeightManager.Instance.ammoWeight);
         StartCoroutine(Ammo());
     }
 
     IEnumerator Fuel()
     {
-        yield return new WaitForSeconds(fuelWaitTime);
+        yield return new WaitForSeconds(fuelWaitTime * crewMultiplier);
         ResourceManager.Instance.fuel += fuelIncrease;
-        //Debug.Log(ResourceManager.Instance.fuel + "Fuel");
+        gameObject.GetComponent<IndividualInventoryScript>().inventory[4] += fuelIncrease;
+        //-------------------UNCOMMENT WHEN INTEGRATED-------------------
+        //WeightManager.Instance.addResourceWeight(fuelIncrease, WeightManager.Instance.fuelWeight);
         StartCoroutine(Fuel());
     }
 }
