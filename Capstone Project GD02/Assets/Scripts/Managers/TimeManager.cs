@@ -39,6 +39,7 @@ public class TimeManager : MonoBehaviour
         {
             currentTime = 0;
             GameManager.Instance.currentDay++;
+            WeightManager.Instance.targetWeightLoss = WeightManager.Instance.generateDayWeightLossTarget();
             //Debug.Log(GameManager.Instance.currentDay);
         }
     }
