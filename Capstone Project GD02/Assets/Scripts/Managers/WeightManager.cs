@@ -38,7 +38,7 @@ public class WeightManager : MonoBehaviour
         foreach (Room room in rooms)
         {
             //-------------------- UNCOMMENT WHEN ALL IN  MAIN -----------------
-            //totalWeight += room.roomWeight;
+            totalWeight += room.roomWeight;
             Debug.Log(totalWeight);
         }
     }
