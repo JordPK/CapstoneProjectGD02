@@ -13,6 +13,8 @@ TagManager:
   - AmmoConsole
   - Room
   - Console
+  - StorageConsole
+  - Cell
   layers:
   - Default
   - TransparentFX
