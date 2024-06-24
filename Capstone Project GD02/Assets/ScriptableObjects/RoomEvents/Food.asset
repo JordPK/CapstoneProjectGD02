@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 941848cdc155f44f0910864b5970d0ba, type: 3}
+  m_Name: Food
+  m_EditorClassIdentifier: 
+  goodEvents:
+  - Your crew, out of sheer despiration created space smoothies combining powered
+    nutrietns and recycled water. the past can be injested for a full but light feeling.
+  badEvent:
+  - "You\u2019re not yourself when you are hungry."
+  - There is an out break of space stoners on board, they all have the munchies,
+    and are looking restless
+  - one of your crew went "space fishing" in the airlock to try and catch a better
+    plant, they forgot to put on their space suit due to malnourishment and died.

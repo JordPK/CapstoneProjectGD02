@@ -18,7 +18,7 @@ public class ResourceGen : MonoBehaviour
     public int ammoIncrease;
     public int fuelIncrease;
 
-
+    public float crewMultiplier = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +32,7 @@ public class ResourceGen : MonoBehaviour
             StartCoroutine(Water());
         }
 
-        if (gameObject.name.Contains("Medical"))
+        if (gameObject.name.Contains("Medbay"))
         {
             StartCoroutine(Medical());
         }
@@ -42,7 +42,7 @@ public class ResourceGen : MonoBehaviour
             StartCoroutine(Ammo());
         }
 
-        if (gameObject.name.Contains("Fuel"))
+        if (gameObject.name.Contains("Generator"))
         {
             StartCoroutine(Fuel());
         }
@@ -57,7 +57,7 @@ public class ResourceGen : MonoBehaviour
 
     IEnumerator Food()
     {
-        yield return new WaitForSeconds(foodWaitTime);
+        yield return new WaitForSeconds(foodWaitTime * crewMultiplier);
         ResourceManager.Instance.food += foodIncrease;
 
         gameObject.GetComponent<IndividualInventoryScript>().inventory[0] += foodIncrease;
@@ -69,7 +69,7 @@ public class ResourceGen : MonoBehaviour
 
     IEnumerator Water()
     {
-        yield return new WaitForSeconds(waterWaitTime);
+        yield return new WaitForSeconds(waterWaitTime * crewMultiplier);
         ResourceManager.Instance.water += waterIncrease;
 
         gameObject.GetComponent<IndividualInventoryScript>().inventory[1] += waterIncrease;
@@ -81,7 +81,7 @@ public class ResourceGen : MonoBehaviour
 
     IEnumerator Medical()
     {
-        yield return new WaitForSeconds(medicalWaitTime);
+        yield return new WaitForSeconds(medicalWaitTime * crewMultiplier);
         ResourceManager.Instance.medicalSupplies += medicalIncrease;
 
         gameObject.GetComponent<IndividualInventoryScript>().inventory[2] += medicalIncrease;
@@ -93,7 +93,7 @@ public class ResourceGen : MonoBehaviour
 
     IEnumerator Ammo()
     {
-        yield return new WaitForSeconds(ammoWaitTime);
+        yield return new WaitForSeconds(ammoWaitTime * crewMultiplier);
         ResourceManager.Instance.ammo += ammoIncrease;
 
         gameObject.GetComponent<IndividualInventoryScript>().inventory[3] += ammoIncrease;
@@ -105,7 +105,7 @@ public class ResourceGen : MonoBehaviour
 
     IEnumerator Fuel()
     {
-        yield return new WaitForSeconds(fuelWaitTime);
+        yield return new WaitForSeconds(fuelWaitTime * crewMultiplier);
         ResourceManager.Instance.fuel += fuelIncrease;
 
         //Debug.Log(ResourceManager.Instance.fuel + "Fuel");

@@ -11,7 +11,7 @@ public class Room : MonoBehaviour
     void Start()
     {
         crewMembers = new List<Crew>();
-        Debug.Log("Room initialized with max crew: " + maxCrew);
+        
     }
     
     public void AddCrewMember(Crew crewMember)
@@ -53,6 +53,7 @@ public class Room : MonoBehaviour
         {
             Debug.Log("Bonus applied for crew member: " + crewMember.name);
         }
+        gameObject.GetComponent<ResourceGen>().crewMultiplier = 1 - (0.1f * crewMembers.Count);
     }
 
     public void RoomDetached()

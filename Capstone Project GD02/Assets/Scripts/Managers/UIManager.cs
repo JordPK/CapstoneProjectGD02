@@ -23,7 +23,8 @@ public class UIManager : MonoBehaviour
     }
 
     [SerializeField] GameObject mainMenuScreen, newGameScreen, mainMenuOptionsScreen, resourceTrackers, fastForwardSpeedDisplay,optionsScreen;
-    [SerializeField] GameObject crewMember, storage, airlock, crewInventoryUI, storageInventoryUI, confirmButton, confirmEjectButton, itemCountButtons, inventoryScreen;
+    [SerializeField] GameObject crewInventoryUI, storageInventoryUI, confirmButton, confirmEjectButton, itemCountButtons, inventoryScreen;
+    private GameObject crewMember, storage, airlock;
     public int gameSceneIndex;
     public bool isMainLevel;
     private int fastForwardIndex = 3;
@@ -161,8 +162,10 @@ public class UIManager : MonoBehaviour
     }
 
     //updates the inventory with the copied values and displays it
-    public void PopulateInventory()
+    public void PopulateInventory(GameObject tempCrewMember, GameObject tempStorage)
     {
+        crewMember = tempCrewMember;
+        storage = tempStorage;
         //calls the inventory manager function that copies the inventories over to a temporary array
         InventoryManager.Instance.LoadAndCopyInventories(crewMember, storage);
         UpdateInventoryUI();
