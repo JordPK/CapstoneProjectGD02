@@ -121,13 +121,13 @@ public class EventManager : MonoBehaviour
         {
             BadSnickers(playerChoice);
         }
-        else if (generatedEvent.Contains(""))
+        else if (generatedEvent.Contains("spa-ishing"))
         {
-           
+            BadFishing(playerChoice);
         }
-        else if (generatedEvent.Contains(""))
+        else if (generatedEvent.Contains("smoothies"))
         {
-           
+            GoodSmoothies(playerChoice);
         }
         else
         {
@@ -165,6 +165,36 @@ public class EventManager : MonoBehaviour
             }
         }
     }
+    public void BadFishing(bool playerchoice)
+    {
+        if(playerchoice) removeRandomCrew(1);
+        else { 
+            RemoveResoruce("fuel", 10);
+            RemoveResoruce("medicalSupplies", 10);
+        }
+    }
+    public void GoodSmoothies(bool playerchoice)
+    {
+        //Your crew, out of sheer despiration created space smoothies combining powered nutrietns and recycled water. the past can be injested for a full but light feeling.
+        if (playerchoice)
+        {
+            // if true speed boost random crew member
+            int a = Random.Range(0, allCrew.Count);
+            NavMeshAgent boost = allCrew[a].GetComponent<NavMeshAgent>();
+            StartCoroutine(speedBoost(boost, 10));
+        }
+
+        else
+        {
+            int a = Random.Range(0, allCrew.Count);
+            NavMeshAgent boost = allCrew[a].GetComponent<NavMeshAgent>();
+            StartCoroutine(speedBoost(boost, 10));
+        }
+
+
+    }
+
+
 
     public void removeRandomCrew(int crewToRemove)
     {
@@ -228,7 +258,15 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(60);
         target.isStopped = false;
     }
+    IEnumerator speedBoost(NavMeshAgent target, int boostTime)
+    {
+        float startSpeed = target.speed;
 
+        target.speed *= 1.5f;
+
+        yield return new WaitForSeconds(boostTime);
+        target.speed = startSpeed;
+    }
 
 
 
