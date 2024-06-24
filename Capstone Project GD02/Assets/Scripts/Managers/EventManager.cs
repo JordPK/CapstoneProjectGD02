@@ -123,11 +123,11 @@ public class EventManager : MonoBehaviour
         }
         else if (generatedEvent.Contains("spa-ishing"))
         {
-           
+            BadFishing(playerChoice);
         }
-        else if (generatedEvent.Contains(""))
+        else if (generatedEvent.Contains("smoothies"))
         {
-           
+            GoodSmoothies(playerChoice);
         }
         else
         {
