@@ -278,6 +278,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 810289516443389040, guid: 04c650867a064bd488e8b2a749f40202,
+        type: 3}
+      propertyPath: m_TagString
+      value: WaterConsole
+      objectReference: {fileID: 0}
     - target: {fileID: 8647068470075084945, guid: 04c650867a064bd488e8b2a749f40202,
         type: 3}
       propertyPath: m_RootOrder
@@ -1204,7 +1209,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270471446}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd1a7ba700ecc4bf09dcbae3933555bd, type: 3}
   m_Name: 
@@ -1324,7 +1329,13 @@ MonoBehaviour:
   skyboxMaterial: {fileID: 2100000, guid: 81f714daf7144784b8a2f42f1cd30927, type: 2}
   rotationAngle: 0
   skyboxRotationSpeed: 0.1
-  skyboxColor: {r: 0, g: 0, b: 0, a: 0}
+  lerpDuration: 5
+  lerpTime: 0
+  normalColour: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 0.5529412}
+  nebulaColour: {r: 0, g: 0, b: 0, a: 0}
+  ionColour: {r: 0, g: 0, b: 0, a: 0}
+  solarWindsColour: {r: 0, g: 0, b: 0, a: 0}
+  gravitationalAnomalyColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1783026470
 GameObject:
   m_ObjectHideFlags: 3
