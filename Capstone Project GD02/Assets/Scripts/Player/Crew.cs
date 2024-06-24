@@ -7,6 +7,7 @@ public class Crew : MonoBehaviour
 {
     public float roomRange = 10f;
     public Room room_;
+    public GameObject consoleRoom;
    
     protected NavMeshAgent agent;
     protected bool hasArrived = false;
@@ -63,13 +64,29 @@ public class Crew : MonoBehaviour
         return closestRoom;
     }
 
+    public void ToggleInventoryUI()
+    {
+        Debug.Log("button worked");
+        UIManager.Instance.PopulateInventory(gameObject, consoleRoom);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         OnArrivedAtDestination();
+        if (other.CompareTag("Console"))
+        {
+            consoleRoom = other.transform.parent.parent.gameObject;
+            transform.GetChild(2).gameObject.SetActive(true);
+        }
     }
     private void OnTriggerExit(Collider other)
     {
         OnArrivedAtDestination();
+        if (other.CompareTag("Console"))
+        {
+            consoleRoom = null;
+            transform.GetChild(2).gameObject.SetActive(false);
+        }
     }
 }
 
