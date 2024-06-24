@@ -11,7 +11,7 @@ public class Room : MonoBehaviour
     void Start()
     {
         crewMembers = new List<Crew>();
-        Debug.Log("Room initialized with max crew: " + maxCrew);
+        
     }
     
     public void AddCrewMember(Crew crewMember)

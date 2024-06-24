@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EventManager : MonoBehaviour
 {
@@ -10,12 +11,15 @@ public class EventManager : MonoBehaviour
 
     public static EventManager Instance;
 
-    public RoomEventData FoodRoomEvents;
     public RoomEventData AmmoRoomEvents;
-    public RoomEventData GenRoomEvents;
-    public RoomEventData ShieldRoomEvents;
-    public RoomEventData WaterRoomEvents;
+    public RoomEventData CabinsRoomEvents;
     public RoomEventData CockpitRoomEvents;
+    public RoomEventData FoodRoomEvents;
+    public RoomEventData GenRoomEvents;
+    public RoomEventData MedbayRoomEvents;
+    public RoomEventData ShieldRoomEvents;
+    public RoomEventData StorageRoomEvents;
+    public RoomEventData WaterRoomEvents;
 
 
     public string generatedEvent;
@@ -42,7 +46,7 @@ public class EventManager : MonoBehaviour
         AddBadToPool(FoodRoomEvents);
         GenerateBadEvents();
         Debug.Log("generated Event " + generatedEvent);
-        checkEventType(true);
+        checkEventType(false);
     }
 
     // Update is called once per frame
@@ -109,13 +113,13 @@ public class EventManager : MonoBehaviour
         
         if (generatedEvent.Contains("stoners"))
         {
-            spaceStoners(playerChoice);
+            BadSpaceStoners(playerChoice);
 
             Debug.Log("Removed food from if else check event type function");
         }
-        else if (generatedEvent.Contains(""))
+        else if (generatedEvent.Contains("hungry."))
         {
-            
+            BadSnickers(playerChoice);
         }
         else if (generatedEvent.Contains(""))
         {
@@ -133,16 +137,97 @@ public class EventManager : MonoBehaviour
 
 
     }
-    public void spaceStoners(bool playerchoice)
+    public void BadSpaceStoners(bool playerchoice)
     {
-        Debug.Log("inside new space stoner function");
-        if (playerchoice) ResourceManager.Instance.food -= 25;
+        //There is an out break of space stoners on board, they all have the munchies.
         
-        else allCrew.RemoveAt(Random.Range(0, allCrew.Count));
+        if (playerchoice) RemoveResoruce("food", 25);
+
+        else
+        {
+            removeRandomCrew(1);
+        }
     }
-   
+    public void BadSnickers(bool playerchoice)
+    {
+        //You’re not yourself when you are hungry.
+        if (playerchoice) RemoveResoruce("food", 5); 
+        else
+        {
+            // if false stop working
+            int a = Random.Range(0, allCrew.Count);
+            NavMeshAgent stopWorking = allCrew[a].GetComponent<NavMeshAgent>(); 
+            //randomly gets a crew members nav mesh agent
+            //if stops nav mesh agent from working for time period 
+            if(stopWorking.destination != null)
+            {
+                StartCoroutine(pauseWork(stopWorking));
+            }
+        }
+    }
 
-
+    public void removeRandomCrew(int crewToRemove)
+    {
+        for (int i = 0; i <= crewToRemove; i++)
+        {
+            int a = Random.Range(0, allCrew.Count);
+            Destroy(allCrew[a].gameObject);
+            allCrew.RemoveAt(a);
+        }
+    }
+    public void RemoveResoruce(string resoruceName, int amount)
+    {
+        switch (resoruceName.ToLower())
+        {
+            case "food":
+                ResourceManager.Instance.food -= amount;
+                break;
+            case "water":
+                ResourceManager.Instance.water -= amount;
+                break;
+            case "medicalsupplies":
+                ResourceManager.Instance.medicalSupplies -= amount;
+                break;
+            case "ammo":
+                ResourceManager.Instance.ammo -= amount;
+                break;
+            case "fuel":
+                ResourceManager.Instance.fuel -= amount;
+                break;
+            default:
+                break;
+        }
+    }
+    public void AddResoruce(string resoruceName, int amount)
+    {
+        switch (resoruceName.ToLower())
+        {
+            case "food":
+                ResourceManager.Instance.food += amount;
+                break;
+            case "water":
+                ResourceManager.Instance.water += amount;
+                break;
+            case "medicalsupplies":
+                ResourceManager.Instance.medicalSupplies += amount;
+                break;
+            case "ammo":
+                ResourceManager.Instance.ammo += amount;
+                break;
+            case "fuel":
+                ResourceManager.Instance.fuel += amount;
+                break;
+            default:
+                break;
+        }
+    }
+    IEnumerator pauseWork(NavMeshAgent target)
+    {
+        //stops movement of navmeshagent 
+        target.isStopped = true;
+        yield return new WaitForSeconds(60);
+        target.isStopped = false;
+    }
 
 
 
