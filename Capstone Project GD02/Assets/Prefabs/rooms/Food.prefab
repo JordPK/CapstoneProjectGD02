@@ -7369,7 +7369,7 @@ GameObject:
   - component: {fileID: 70336736850351440}
   m_Layer: 0
   m_Name: console (1)
-  m_TagString: Untagged
+  m_TagString: Console
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
