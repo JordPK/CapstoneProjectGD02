@@ -340,6 +340,61 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04c650867a064bd488e8b2a749f40202, type: 3}
+--- !u!1 &134700207
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 134700208}
+  - component: {fileID: 134700209}
+  m_Layer: 0
+  m_Name: EventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &134700208
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134700207}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 382943870}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &134700209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134700207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3d4b32ebee5c4f1287ba0e5778b92b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingRoomCount: 0
+  goodEventsPool: []
+  badEventsPool: []
+  FoodRoomEvents: {fileID: 11400000, guid: d06f0b1f93dfe444d99de01f85938149, type: 2}
+  AmmoRoomEvents: {fileID: 0}
+  GenRoomEvents: {fileID: 0}
+  ShieldRoomEvents: {fileID: 0}
+  WaterRoomEvents: {fileID: 0}
+  CockpitRoomEvents: {fileID: 0}
+  generatedEvent: 
+  allCrew: []
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,6 +636,7 @@ Transform:
   - {fileID: 1270471447}
   - {fileID: 34847967}
   - {fileID: 1919274193}
+  - {fileID: 134700208}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
