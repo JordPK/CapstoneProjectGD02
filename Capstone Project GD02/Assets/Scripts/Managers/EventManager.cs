@@ -41,12 +41,18 @@ public class EventManager : MonoBehaviour
     void Start()
     {
         allCrew = FindObjectsOfType<Crew>().ToList();
-
         startingRoomCount = FindObjectsOfType<Room>().Length;
-        AddBadToPool(FoodRoomEvents);
-        GenerateBadEvents();
-        Debug.Log("generated Event " + generatedEvent);
-        checkEventType(false);
+        AddGoodToPool(AmmoRoomEvents);
+        AddGoodToPool(CabinsRoomEvents);
+        AddGoodToPool(CockpitRoomEvents);
+        AddGoodToPool(FoodRoomEvents);
+        AddGoodToPool(GenRoomEvents);
+        AddGoodToPool(MedbayRoomEvents);
+        AddGoodToPool(ShieldRoomEvents);
+        AddGoodToPool(StorageRoomEvents);
+        AddGoodToPool(WaterRoomEvents);
+
+
     }
 
     // Update is called once per frame
@@ -59,7 +65,7 @@ public class EventManager : MonoBehaviour
     {
         for (int i = 0; i < toAdd.goodEvents.Count; i++)
         {
-            goodEventsPool.Add(toAdd.goodEvents[i]);
+            if (!goodEventsPool.Contains(toAdd.goodEvents[i])) goodEventsPool.Add(toAdd.goodEvents[i]);
             
         }
     } 
@@ -67,7 +73,7 @@ public class EventManager : MonoBehaviour
     {
         for (int i = 0; i < toAdd.badEvent.Count; i++)
         {
-            badEventsPool.Add(toAdd.badEvent[i]);
+            if (!badEventsPool.Contains(toAdd.badEvent[i])) badEventsPool.Add(toAdd.badEvent[i]);
             
         }
     }
@@ -137,6 +143,7 @@ public class EventManager : MonoBehaviour
 
 
     }
+    //event functions
     public void BadSpaceStoners(bool playerchoice)
     {
         //There is an out break of space stoners on board, they all have the munchies.
@@ -195,7 +202,7 @@ public class EventManager : MonoBehaviour
     }
 
 
-
+    //generic event action functions 
     public void removeRandomCrew(int crewToRemove)
     {
         for (int i = 0; i <= crewToRemove; i++)
@@ -271,7 +278,7 @@ public class EventManager : MonoBehaviour
 
 
 
-
+    //return % of remaining rooms for post game evaluation
     public float GetPercentage()
     {
         return (FindObjectsOfType<Room>().Length / startingRoomCount) * 100; 
