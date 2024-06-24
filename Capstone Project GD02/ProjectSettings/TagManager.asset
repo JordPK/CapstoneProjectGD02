@@ -11,6 +11,8 @@ TagManager:
   - FuelConsole
   - MedicalConsole
   - AmmoConsole
+  - Room
+  - Console
   layers:
   - Default
   - TransparentFX
