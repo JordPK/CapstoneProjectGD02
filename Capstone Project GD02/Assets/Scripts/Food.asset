@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Food
   m_EditorClassIdentifier: 
   goodEvents:
-  - Hello
-  badEvent: []
+  - 
+  badEvent:
+  - There is an out break of space stoners on board, they all have the munchies,
+    use 25 food to prevent something bad

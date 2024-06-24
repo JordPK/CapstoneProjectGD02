@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "RoomEvent", menuName = "Scriptable Objects/RoomEventData",order = 2)]
-public class RoomEventData :ScriptableObject
+public class RoomEventData : ScriptableObject
 {
     public List<string> goodEvents, badEvent = new List<string>(); 
 
