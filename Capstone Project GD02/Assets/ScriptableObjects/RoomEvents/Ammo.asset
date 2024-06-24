@@ -10,10 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 941848cdc155f44f0910864b5970d0ba, type: 3}
-  m_Name: Food
+  m_Name: Ammo
   m_EditorClassIdentifier: 
-  goodEvents:
-  - 
-  badEvent:
-  - There is an out break of space stoners on board, they all have the munchies,
-    use 25 food to prevent something bad
+  goodEvents: []
+  badEvent: []
