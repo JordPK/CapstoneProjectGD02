@@ -8589,6 +8589,7 @@ MonoBehaviour:
   medicalIncrease: 0
   ammoIncrease: 0
   fuelIncrease: 0
+  crewMultiplier: 1
 --- !u!114 &840721832292327514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17197,7 +17198,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 4, y: 4, z: 4}
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1400339002536640238
 GameObject:
