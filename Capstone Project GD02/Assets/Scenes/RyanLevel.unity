@@ -1396,8 +1396,6 @@ MonoBehaviour:
   resourceTrackers: {fileID: 729659490}
   fastForwardSpeedDisplay: {fileID: 506012589}
   optionsScreen: {fileID: 811604991}
-  crewMember: {fileID: 117459890}
-  storage: {fileID: 1636068286}
   airlock: {fileID: 1218861724}
   crewInventoryUI: {fileID: 212198109}
   storageInventoryUI: {fileID: 1445065531}
@@ -9469,7 +9467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1438641771}
   m_Layer: 5
-  m_Name: TestHUDScreen
+  m_Name: HUDScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12762,7 +12760,7 @@ GameObject:
   - component: {fileID: 2013958957}
   - component: {fileID: 2013958956}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: MainLevelUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
