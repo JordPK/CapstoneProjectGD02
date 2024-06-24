@@ -607,6 +607,7 @@ Transform:
   - {fileID: 539244215}
   - {fileID: 344311743}
   - {fileID: 426080133}
+  - {fileID: 1734138327}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -954,6 +955,20 @@ MonoBehaviour:
   mainMenuScreen: {fileID: 0}
   newGameScreen: {fileID: 0}
   mainMenuOptionsScreen: {fileID: 0}
+  resourceTrackers: {fileID: 0}
+  fastForwardSpeedDisplay: {fileID: 0}
+  optionsScreen: {fileID: 0}
+  crewMember: {fileID: 0}
+  storage: {fileID: 0}
+  airlock: {fileID: 0}
+  crewInventoryUI: {fileID: 0}
+  storageInventoryUI: {fileID: 0}
+  confirmButton: {fileID: 0}
+  confirmEjectButton: {fileID: 0}
+  itemCountButtons: {fileID: 0}
+  inventoryScreen: {fileID: 0}
+  gameSceneIndex: 0
+  isMainLevel: 0
 --- !u!1001 &551422045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1793,6 +1808,60 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 140488917}
+--- !u!1 &1734138326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1734138327}
+  - component: {fileID: 1734138328}
+  m_Layer: 0
+  m_Name: SkyboxManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1734138327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734138326}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 382943870}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1734138328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734138326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04617eddeefabb044ba1afbc5e6c5681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skyboxMaterial: {fileID: 2100000, guid: 81f714daf7144784b8a2f42f1cd30927, type: 2}
+  rotationAngle: 0
+  skyboxRotationSpeed: 0.1
+  lerpDuration: 10
+  lerpTime: 0
+  normalColour: {r: 0.5764706, g: 0.5764706, b: 0.5764706, a: 0.4117647}
+  nebulaColour: {r: 0.45302257, g: 0.18801177, b: 0.6132076, a: 0}
+  ionColour: {r: 0.107467055, g: 0.27081844, b: 0.6509434, a: 0}
+  solarWindsColour: {r: 0, g: 0, b: 0, a: 0}
+  gravitationalAnomalyColour: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1783026470
 GameObject:
   m_ObjectHideFlags: 3
