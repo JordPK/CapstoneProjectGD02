@@ -9,9 +9,7 @@ public class Room : MonoBehaviour
     public int roomWeight;
 
     public IndividualInventoryScript inven;
-
     detachAudio detachAudioSFX;
-
     void Start()
     {
         crewMembers = new List<Crew>();
@@ -66,7 +64,9 @@ public class Room : MonoBehaviour
         detachAudioSFX.playDetachSound();
 
         Debug.Log("Room detaching all crew members and dead.");
+        ResourceManager.Instance.detectedInvenToRemove(5, 0);
 
+        //Debug.Log(EventManager.Instance.GetPercentage());
         updateEventPool();
         //temporary addtion to save cam sens to proove save will work in with whatever we want lol
         //SaveGameManager.SaveFloat(Application.persistentDataPath + "/CameraSettings.txt", "FPSCamSensitivity", CameraManager.Instance.FPSCamSensitivity);  // NEEDS TO BE FIXED
@@ -92,7 +92,15 @@ public class Room : MonoBehaviour
         gameObject.SetActive(false);
         roomEjected = true;
     }
-
+    public void jettisonCargo()
+    {
+        int[] inven = GetComponent<IndividualInventoryScript>().inventory;
+        for (int i = 0; i < inven.Length; i++)
+        {
+            WeightManager.Instance.removeResourceWeight(inven[i], 1);
+            inven[i] = 0;
+        }
+    }
     public void updateEventPool()
     {
         // Determine the event data based on the room name
@@ -143,15 +151,6 @@ public class Room : MonoBehaviour
         //add and remove events based on each room name 
         EventManager.Instance.AddBadToPool(roomEventData);
         EventManager.Instance.RemoveGoodFromPool(roomEventData);
-    }
-
-    public void jettisonCargo()
-    {
-        int[] inven = GetComponent<IndividualInventoryScript>().inventory;
-        for (int i = 0; i < inven.Length; i++)
-        {
-            inven[i] = 0;
-        }
     }
 
 }
