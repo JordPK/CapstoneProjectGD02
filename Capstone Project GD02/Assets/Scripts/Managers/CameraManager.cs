@@ -13,6 +13,7 @@ public class CameraManager : MonoBehaviour
 
     [Header("Third Person Camera Controls")]
     public float cameraMoveSpeed = 5;
+    public float cameraRotateSpeed = 5;
     [SerializeField] float zoomSpeed;
     [SerializeField] float minFOV = 30;
     [SerializeField] float maxFOV = 80f;

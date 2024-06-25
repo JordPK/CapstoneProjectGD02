@@ -8,10 +8,15 @@ public class Room : MonoBehaviour
     public bool roomEjected = false;
     public int roomWeight;
 
+    public IndividualInventoryScript inven;
+
+    detachAudio detachAudioSFX;
+
     void Start()
     {
         crewMembers = new List<Crew>();
         
+        detachAudioSFX = FindAnyObjectByType<detachAudio>();
     }
     
     public void AddCrewMember(Crew crewMember)
@@ -58,6 +63,8 @@ public class Room : MonoBehaviour
 
     public void RoomDetached()
     {
+        detachAudioSFX.playDetachSound();
+
         Debug.Log("Room detaching all crew members and dead.");
 
         updateEventPool();
@@ -78,6 +85,8 @@ public class Room : MonoBehaviour
 
         // Clear the crew list
         crewMembers.Clear();
+
+        
 
         // Disable the room game object
         gameObject.SetActive(false);
@@ -134,6 +143,15 @@ public class Room : MonoBehaviour
         //add and remove events based on each room name 
         EventManager.Instance.AddBadToPool(roomEventData);
         EventManager.Instance.RemoveGoodFromPool(roomEventData);
+    }
+
+    public void jettisonCargo()
+    {
+        int[] inven = GetComponent<IndividualInventoryScript>().inventory;
+        for (int i = 0; i < inven.Length; i++)
+        {
+            inven[i] = 0;
+        }
     }
 
 }
