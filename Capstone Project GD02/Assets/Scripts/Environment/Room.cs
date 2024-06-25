@@ -60,7 +60,7 @@ public class Room : MonoBehaviour
     {
         Debug.Log("Room detaching all crew members and dead.");
 
-
+        updateEventPool();
         //temporary addtion to save cam sens to proove save will work in with whatever we want lol
         //SaveGameManager.SaveFloat(Application.persistentDataPath + "/CameraSettings.txt", "FPSCamSensitivity", CameraManager.Instance.FPSCamSensitivity);  // NEEDS TO BE FIXED
         // Destroy all crew members in the room
@@ -83,4 +83,58 @@ public class Room : MonoBehaviour
         gameObject.SetActive(false);
         roomEjected = true;
     }
+
+    public void updateEventPool()
+    {
+        // Determine the event data based on the room name
+        RoomEventData roomEventData = null;
+
+        if (gameObject.name.Contains("AmmoRoom"))
+        {
+            roomEventData = EventManager.Instance.AmmoRoomEvents;
+        }
+        else if (gameObject.name.Contains("Cabins"))
+        {
+            roomEventData = EventManager.Instance.CabinsRoomEvents;
+        }
+        else if (gameObject.name.Contains("Cockpit"))
+        {
+            roomEventData = EventManager.Instance.CockpitRoomEvents;
+        }
+        else if (gameObject.name.Contains("Food"))
+        {
+            roomEventData = EventManager.Instance.FoodRoomEvents;
+        }
+        else if (gameObject.name.Contains("GeneratorRoom"))
+        {
+            roomEventData = EventManager.Instance.GenRoomEvents;
+        }
+        else if (gameObject.name.Contains("Medbay"))
+        {
+            roomEventData = EventManager.Instance.MedbayRoomEvents;
+        }
+        else if (gameObject.name.Contains("ShieldGen"))
+        {
+            roomEventData = EventManager.Instance.ShieldRoomEvents;
+        }
+        else if (gameObject.name.Contains("Storage"))
+        {
+            roomEventData = EventManager.Instance.StorageRoomEvents;
+        }
+        else if (gameObject.name.Contains("WaterRoom"))
+        {
+            roomEventData = EventManager.Instance.WaterRoomEvents;
+        }
+        else
+        {
+            Debug.LogWarning("No matching room event data found for room: " + gameObject.name);
+            return;
+        }
+
+        //add and remove events based on each room name 
+        EventManager.Instance.AddBadToPool(roomEventData);
+        EventManager.Instance.RemoveGoodFromPool(roomEventData);
+    }
+
 }
+
