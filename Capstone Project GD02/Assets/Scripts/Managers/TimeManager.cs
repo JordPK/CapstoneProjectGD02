@@ -47,6 +47,15 @@ public class TimeManager : MonoBehaviour
             currentTime = 0;
             GameManager.Instance.currentDay++;
 
+            //checks to see if day 10 was just finished and ends the game if it was
+            if(GameManager.Instance.currentDay == 11)
+            {
+                Debug.Log("VICTORY -- YOU WIN");
+                GameManager.Instance.GameVictory();
+                //insert a reference to the UI manager that handles the victory screen
+            }
+
+
             DailyCrewCharge();
             NewWeightGoal();
             GenerateRandomEvent();
@@ -68,8 +77,8 @@ public class TimeManager : MonoBehaviour
         // removing resources for each crew member
         Crew[] currentCrew = FindObjectsOfType<Crew>();
     
-            EventManager.Instance.RemoveResoruce("Food", 1 * currentCrew.Length);
-            EventManager.Instance.RemoveResoruce("Water", 1 * currentCrew.Length);
+            EventManager.Instance.RemoveResoruce("food", 1 * currentCrew.Length);
+            EventManager.Instance.RemoveResoruce("water", 1 * currentCrew.Length);
         
     }
 
@@ -87,5 +96,18 @@ public class TimeManager : MonoBehaviour
         if(rand == 0) dailyEvent = EventManager.Instance.GenerateGoodEvents();
         else dailyEvent = EventManager.Instance.GenerateBadEvents();
 
+    }
+
+    public void ResourceNegativeCheck()
+    {
+        for(int i =0; i < UIManager.Instance.resourceCounts.Length; i++)
+        {
+            if (UIManager.Instance.resourceCounts[i] < 0)
+            {
+                Debug.Log("GAME OVER");
+                GameManager.Instance.GameOver();
+                //insert a reference to a function within the UI Manager that handles the game over screen
+            }
+        }
     }
 }

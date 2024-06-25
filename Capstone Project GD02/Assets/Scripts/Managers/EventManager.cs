@@ -227,22 +227,27 @@ public class EventManager : MonoBehaviour
             case "food":
                 ResourceManager.Instance.food -= amount;
                 WeightManager.Instance.removeResourceWeight(amount, 1);
+                ResourceManager.Instance.detectedInvenToRemove(amount, 0);
                 break;
             case "water":
                 ResourceManager.Instance.water -= amount;
                 WeightManager.Instance.removeResourceWeight(amount, 1);
+                ResourceManager.Instance.detectedInvenToRemove(amount, 1);
                 break;
             case "medicalsupplies":
                 ResourceManager.Instance.medicalSupplies -= amount;
                 WeightManager.Instance.removeResourceWeight(amount, 3);
+                ResourceManager.Instance.detectedInvenToRemove(amount, 2);
                 break;
             case "ammo":
                 ResourceManager.Instance.ammo -= amount;
                 WeightManager.Instance.removeResourceWeight(amount, 2);
+                ResourceManager.Instance.detectedInvenToRemove(amount, 3);
                 break;
             case "fuel":
                 ResourceManager.Instance.fuel -= amount;
                 WeightManager.Instance.removeResourceWeight(amount, 2);
+                ResourceManager.Instance.detectedInvenToRemove(amount, 4);
                 break;
             default:
                 break;

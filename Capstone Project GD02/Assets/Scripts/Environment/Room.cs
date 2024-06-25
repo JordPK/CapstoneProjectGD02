@@ -86,7 +86,8 @@ public class Room : MonoBehaviour
         // Clear the crew list
         crewMembers.Clear();
 
-        
+        //check to make sure that the captain hasn't been ejected
+        GameManager.Instance.CheckForCaptain();
 
         // Disable the room game object
         gameObject.SetActive(false);
