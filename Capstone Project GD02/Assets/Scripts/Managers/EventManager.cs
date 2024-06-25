@@ -259,18 +259,23 @@ public class EventManager : MonoBehaviour
         {
             case "food":
                 ResourceManager.Instance.food += amount;
+                WeightManager.Instance.addResourceWeight(amount, 1);
                 break;
             case "water":
                 ResourceManager.Instance.water += amount;
+                WeightManager.Instance.addResourceWeight(amount, 1);
                 break;
             case "medicalsupplies":
                 ResourceManager.Instance.medicalSupplies += amount;
+                WeightManager.Instance.addResourceWeight(amount, 3);
                 break;
             case "ammo":
                 ResourceManager.Instance.ammo += amount;
+                WeightManager.Instance.addResourceWeight(amount, 2);
                 break;
             case "fuel":
                 ResourceManager.Instance.fuel += amount;
+                WeightManager.Instance.addResourceWeight(amount, 2);
                 break;
             default:
                 break;
