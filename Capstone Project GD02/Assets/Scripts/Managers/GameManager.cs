@@ -32,4 +32,27 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = Speed;
     }
+
+    public void CheckForCaptain()
+    {
+        GameObject captain = GameObject.FindAnyObjectByType<FPSPlayerMovement>().gameObject;
+        if(captain == null)
+        {
+            Debug.Log("GAME OVER");
+            GameOver();
+            //insert reference to a function in the UI manager that will handle the game over screen.
+        }
+    }
+
+    public void GameOver()
+    {
+        ScoreEvaluation.Instance.EvaluateScore(EventManager.Instance.GetPercentage());
+        Debug.Log("Grade: " + ScoreEvaluation.Instance.grade); //move this to UI Manager for actual end screen updates
+    }
+
+    public void GameVictory()
+    {
+        ScoreEvaluation.Instance.EvaluateScore(EventManager.Instance.GetPercentage());
+        Debug.Log("Grade: " + ScoreEvaluation.Instance.grade); //move this to UI Manager for actual end screen updates
+    }
 }
