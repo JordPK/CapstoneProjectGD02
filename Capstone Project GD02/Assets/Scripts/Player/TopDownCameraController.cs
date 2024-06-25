@@ -43,6 +43,7 @@ public class TopDownCameraController : MonoBehaviour
 
         moveDirection = new Vector3(horizontal, 0, vertical).normalized;
 
+        
     }
 
     void MobileInput()

@@ -41,12 +41,18 @@ public class EventManager : MonoBehaviour
     void Start()
     {
         allCrew = FindObjectsOfType<Crew>().ToList();
-
         startingRoomCount = FindObjectsOfType<Room>().Length;
-        AddBadToPool(FoodRoomEvents);
-        GenerateBadEvents();
-        Debug.Log("generated Event " + generatedEvent);
-        checkEventType(false);
+        AddGoodToPool(AmmoRoomEvents);
+        AddGoodToPool(CabinsRoomEvents);
+        AddGoodToPool(CockpitRoomEvents);
+        AddGoodToPool(FoodRoomEvents);
+        AddGoodToPool(GenRoomEvents);
+        AddGoodToPool(MedbayRoomEvents);
+        AddGoodToPool(ShieldRoomEvents);
+        AddGoodToPool(StorageRoomEvents);
+        AddGoodToPool(WaterRoomEvents);
+
+
     }
 
     // Update is called once per frame
@@ -59,7 +65,7 @@ public class EventManager : MonoBehaviour
     {
         for (int i = 0; i < toAdd.goodEvents.Count; i++)
         {
-            goodEventsPool.Add(toAdd.goodEvents[i]);
+            if (!goodEventsPool.Contains(toAdd.goodEvents[i])) goodEventsPool.Add(toAdd.goodEvents[i]);
             
         }
     } 
@@ -67,7 +73,7 @@ public class EventManager : MonoBehaviour
     {
         for (int i = 0; i < toAdd.badEvent.Count; i++)
         {
-            badEventsPool.Add(toAdd.badEvent[i]);
+            if (!badEventsPool.Contains(toAdd.badEvent[i])) badEventsPool.Add(toAdd.badEvent[i]);
             
         }
     }
@@ -121,13 +127,13 @@ public class EventManager : MonoBehaviour
         {
             BadSnickers(playerChoice);
         }
-        else if (generatedEvent.Contains(""))
+        else if (generatedEvent.Contains("spa-ishing"))
         {
-           
+            BadFishing(playerChoice);
         }
-        else if (generatedEvent.Contains(""))
+        else if (generatedEvent.Contains("smoothies"))
         {
-           
+            GoodSmoothies(playerChoice);
         }
         else
         {
@@ -137,6 +143,7 @@ public class EventManager : MonoBehaviour
 
 
     }
+    //event functions
     public void BadSpaceStoners(bool playerchoice)
     {
         //There is an out break of space stoners on board, they all have the munchies.
@@ -165,7 +172,37 @@ public class EventManager : MonoBehaviour
             }
         }
     }
+    public void BadFishing(bool playerchoice)
+    {
+        if(playerchoice) removeRandomCrew(1);
+        else { 
+            RemoveResoruce("fuel", 10);
+            RemoveResoruce("medicalSupplies", 10);
+        }
+    }
+    public void GoodSmoothies(bool playerchoice)
+    {
+        //Your crew, out of sheer despiration created space smoothies combining powered nutrietns and recycled water. the past can be injested for a full but light feeling.
+        if (playerchoice)
+        {
+            // if true speed boost random crew member
+            int a = Random.Range(0, allCrew.Count);
+            NavMeshAgent boost = allCrew[a].GetComponent<NavMeshAgent>();
+            StartCoroutine(speedBoost(boost, 10));
+        }
 
+        else
+        {
+            int a = Random.Range(0, allCrew.Count);
+            NavMeshAgent boost = allCrew[a].GetComponent<NavMeshAgent>();
+            StartCoroutine(speedBoost(boost, 10));
+        }
+
+
+    }
+
+
+    //generic event action functions 
     public void removeRandomCrew(int crewToRemove)
     {
         for (int i = 0; i <= crewToRemove; i++)
@@ -228,12 +265,20 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(60);
         target.isStopped = false;
     }
+    IEnumerator speedBoost(NavMeshAgent target, int boostTime)
+    {
+        float startSpeed = target.speed;
+
+        target.speed *= 1.5f;
+
+        yield return new WaitForSeconds(boostTime);
+        target.speed = startSpeed;
+    }
 
 
 
 
-
-
+    //return % of remaining rooms for post game evaluation
     public float GetPercentage()
     {
         return (FindObjectsOfType<Room>().Length / startingRoomCount) * 100; 

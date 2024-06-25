@@ -5,6 +5,9 @@ using UnityEngine;
 public class MusicAudioManager : Audio
 {
     public static MusicAudioManager Instance;
+
+    [SerializeField] AudioClip[] music;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -14,7 +17,12 @@ public class MusicAudioManager : Audio
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
- 
+
+    private void Start()
+    {
+        
+    }
+
 
     // Update is called once per frame
     void Update()
