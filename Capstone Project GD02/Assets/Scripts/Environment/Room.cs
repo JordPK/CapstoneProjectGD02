@@ -8,13 +8,13 @@ public class Room : MonoBehaviour
     public bool roomEjected = false;
     public int roomWeight;
 
-    public AudioClip dettachSFX;
-
     public IndividualInventoryScript inven;
+    detachAudio detachAudioSFX;
     void Start()
     {
         crewMembers = new List<Crew>();
         
+        detachAudioSFX = FindAnyObjectByType<detachAudio>();
     }
     
     public void AddCrewMember(Crew crewMember)
@@ -61,6 +61,8 @@ public class Room : MonoBehaviour
 
     public void RoomDetached()
     {
+        detachAudioSFX.playDetachSound();
+
         Debug.Log("Room detaching all crew members and dead.");
         ResourceManager.Instance.detectedInvenToRemove(5, 0);
 
@@ -83,6 +85,8 @@ public class Room : MonoBehaviour
 
         // Clear the crew list
         crewMembers.Clear();
+
+        
 
         // Disable the room game object
         gameObject.SetActive(false);

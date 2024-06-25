@@ -6331,6 +6331,7 @@ MonoBehaviour:
   crewMembers: []
   roomEjected: 0
   roomWeight: 450
+  inven: {fileID: 0}
 --- !u!65 &5121010267569506808
 BoxCollider:
   m_ObjectHideFlags: 0

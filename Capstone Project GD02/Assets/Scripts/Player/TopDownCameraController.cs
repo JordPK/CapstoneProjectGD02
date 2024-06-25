@@ -31,7 +31,7 @@ public class TopDownCameraController : MonoBehaviour
 #elif UNITY_ANDROID
             //TouchInput();
 #endif
-            transform.Translate(moveDirection * CameraManager.Instance.cameraMoveSpeed * Time.deltaTime, Space.World);
+            transform.Translate(moveDirection * CameraManager.Instance.cameraMoveSpeed * Time.deltaTime);
         }
         
     }
@@ -41,9 +41,7 @@ public class TopDownCameraController : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        moveDirection = new Vector3(horizontal, 0, vertical).normalized;
-
-        
+        moveDirection = new Vector3(horizontal, 0, vertical).normalized;  
     }
 
     void MobileInput()
@@ -117,6 +115,7 @@ public class TopDownCameraController : MonoBehaviour
             }
         }
     }
+   
 }
 
 

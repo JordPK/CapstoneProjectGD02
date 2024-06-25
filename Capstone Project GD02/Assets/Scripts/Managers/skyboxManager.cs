@@ -44,7 +44,7 @@ public class skyboxManager : MonoBehaviour
         skyboxMaterial.SetColor("_Tint", normalColour);
 
         skyboxMaterial.SetFloat("_Rotation", rotationAngle);
-        StartCoroutine(LerpSkyboxColor(ionColour));
+        
 
 
     }
