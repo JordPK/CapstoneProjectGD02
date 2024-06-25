@@ -78,15 +78,7 @@ public class UITesting : MonoBehaviour
         itemCountButtons.SetActive(false);
     }
 
-    public void ConfirmEjection()
-    {
-        InventoryManager.Instance.ConfirmEjection(crewMember, airlock);
-
-        crewInventoryUI.SetActive(false);
-        storageInventoryUI.SetActive(false);
-        confirmEjectButton.SetActive(false);
-        itemCountButtons.SetActive(false);
-    }
+   
 
     //updates the UI inventory numbers to reflect the temporary inventories in the inventory manager
     private void UpdateInventoryUI()

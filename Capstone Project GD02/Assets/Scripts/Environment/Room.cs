@@ -8,6 +8,9 @@ public class Room : MonoBehaviour
     public bool roomEjected = false;
     public int roomWeight;
 
+    public AudioClip dettachSFX;
+
+    public IndividualInventoryScript inven;
     void Start()
     {
         crewMembers = new List<Crew>();
@@ -59,7 +62,9 @@ public class Room : MonoBehaviour
     public void RoomDetached()
     {
         Debug.Log("Room detaching all crew members and dead.");
+        ResourceManager.Instance.detectedInvenToRemove(5, 0);
 
+        //Debug.Log(EventManager.Instance.GetPercentage());
         updateEventPool();
         //temporary addtion to save cam sens to proove save will work in with whatever we want lol
         //SaveGameManager.SaveFloat(Application.persistentDataPath + "/CameraSettings.txt", "FPSCamSensitivity", CameraManager.Instance.FPSCamSensitivity);  // NEEDS TO BE FIXED
@@ -83,7 +88,15 @@ public class Room : MonoBehaviour
         gameObject.SetActive(false);
         roomEjected = true;
     }
-
+    public void jettisonCargo()
+    {
+        int[] inven = GetComponent<IndividualInventoryScript>().inventory;
+        for (int i = 0; i < inven.Length; i++)
+        {
+            WeightManager.Instance.removeResourceWeight(inven[i], 1);
+            inven[i] = 0;
+        }
+    }
     public void updateEventPool()
     {
         // Determine the event data based on the room name

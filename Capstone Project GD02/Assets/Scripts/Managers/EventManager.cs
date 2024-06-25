@@ -158,15 +158,19 @@ public class EventManager : MonoBehaviour
     public void BadSnickers(bool playerchoice)
     {
         //You’re not yourself when you are hungry.
-        if (playerchoice) RemoveResoruce("food", 5); 
+        if (playerchoice)
+        {
+            RemoveResoruce("food", 5);
+            ResourceManager.Instance.detectedInvenToRemove(5, 0);
+        }
         else
         {
             // if false stop working
             int a = Random.Range(0, allCrew.Count);
-            NavMeshAgent stopWorking = allCrew[a].GetComponent<NavMeshAgent>(); 
+            NavMeshAgent stopWorking = allCrew[a].GetComponent<NavMeshAgent>();
             //randomly gets a crew members nav mesh agent
             //if stops nav mesh agent from working for time period 
-            if(stopWorking.destination != null)
+            if (stopWorking.destination != null)
             {
                 StartCoroutine(pauseWork(stopWorking));
             }
@@ -218,18 +222,23 @@ public class EventManager : MonoBehaviour
         {
             case "food":
                 ResourceManager.Instance.food -= amount;
+                WeightManager.Instance.removeResourceWeight(amount, 1);
                 break;
             case "water":
                 ResourceManager.Instance.water -= amount;
+                WeightManager.Instance.removeResourceWeight(amount, 1);
                 break;
             case "medicalsupplies":
                 ResourceManager.Instance.medicalSupplies -= amount;
+                WeightManager.Instance.removeResourceWeight(amount, 3);
                 break;
             case "ammo":
                 ResourceManager.Instance.ammo -= amount;
+                WeightManager.Instance.removeResourceWeight(amount, 2);
                 break;
             case "fuel":
                 ResourceManager.Instance.fuel -= amount;
+                WeightManager.Instance.removeResourceWeight(amount, 2);
                 break;
             default:
                 break;
@@ -281,8 +290,11 @@ public class EventManager : MonoBehaviour
     //return % of remaining rooms for post game evaluation
     public float GetPercentage()
     {
-        return (FindObjectsOfType<Room>().Length / startingRoomCount) * 100; 
+        int currRoomCount = FindObjectsOfType<Room>().Length;
+        if (startingRoomCount == 0) return 0; 
+        return ((float)currRoomCount / startingRoomCount) * 100;
     }
+    
 
 
 }

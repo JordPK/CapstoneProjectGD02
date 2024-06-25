@@ -20,8 +20,36 @@ public class ResourceManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
+    
+    public void detectedInvenToRemove(int toRemove, int resrouceIndex)
+    {
+        int removedResrouces = 0;
+        IndividualInventoryScript[] allInventories = FindObjectsOfType<IndividualInventoryScript>();
+        foreach (IndividualInventoryScript inventory in allInventories)
+        {
+            if(removedResrouces >= toRemove)  break;
+            if(toRemove > 0)
+            {
+                Debug.Log("inside to remove > 0 ");
+               if(toRemove > inventory.inventory[resrouceIndex])
+                {
+                    Debug.Log("to remove > inven index remove remaining inventory");
+                    inventory.inventory[resrouceIndex] -= inventory.inventory[resrouceIndex];
+                    removedResrouces += inventory.inventory[resrouceIndex];
+                    toRemove -= inventory.inventory[resrouceIndex];
+                }
+                else
+                {
+                    Debug.Log("to remove removed all from inven");
+                    inventory.inventory[resrouceIndex] -= toRemove;
+                    removedResrouces += toRemove;
+                }
 
+            }
 
+        }
+
+    }
     // Start is called before the first frame update
     void Start()
     {

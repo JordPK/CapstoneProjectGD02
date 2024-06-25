@@ -113,11 +113,14 @@ public class UIManager : MonoBehaviour
         TMP_Text[] resourceText = resourceTrackers.GetComponentsInChildren<TMP_Text>();
         for(int i = 0; i < resourceText.Length; i++)
         {
+            
             resourceText[i].text = resourceCounts[i].ToString();
         }
+
         yield return new WaitForSeconds(2);
         StartCoroutine(UpdateResourceCount());
     }
+   
 
     public void PauseGame()
     {
@@ -207,13 +210,7 @@ public class UIManager : MonoBehaviour
         confirmButton.SetActive(false);
     }
 
-    public void ConfirmEjection()
-    {
-        InventoryManager.Instance.ConfirmEjection(crewMember, airlock);
-
-        inventoryScreen.SetActive(false);
-        confirmEjectButton.SetActive(false);
-    }
+    
 
     //updates the UI inventory numbers to reflect the temporary inventories in the inventory manager
     private void UpdateInventoryUI()
