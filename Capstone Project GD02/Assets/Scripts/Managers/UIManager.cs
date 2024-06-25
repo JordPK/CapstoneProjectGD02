@@ -29,6 +29,7 @@ public class UIManager : MonoBehaviour
     public bool isMainLevel;
     private int fastForwardIndex = 3;
     private int itemCount = 1;
+    public int[] resourceCounts = new int[5];
 
     // Start is called before the first frame update
     void Start()
@@ -100,7 +101,6 @@ public class UIManager : MonoBehaviour
     #region HUD
     IEnumerator UpdateResourceCount()
     {
-        int[] resourceCounts = new int[5];
         IndividualInventoryScript[] allInventories = FindObjectsOfType<IndividualInventoryScript>();
         //include code that runs through all inventories in the game and sums up the resource values
         foreach (IndividualInventoryScript inventory in allInventories)

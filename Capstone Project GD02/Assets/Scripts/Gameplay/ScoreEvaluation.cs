@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ScoreEvaluation : MonoBehaviour
 {
+    public string grade;
+
+
     public static ScoreEvaluation Instance { get; private set; }
     void Awake()
     {
@@ -22,7 +25,7 @@ public class ScoreEvaluation : MonoBehaviour
 
     public void EvaluateScore(float shipRemaining)
     {
-        string grade;
+        
         switch (shipRemaining)
         {
             case >= 100:
@@ -53,7 +56,7 @@ public class ScoreEvaluation : MonoBehaviour
                 grade = "F";
                 break;
         }
-        Debug.Log("Grade: " + grade);
+        
     }
 }
 
