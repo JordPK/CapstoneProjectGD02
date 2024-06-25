@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public float currentDay;
+    public int currentDay;
 
     public static GameManager Instance;
     void Awake()
