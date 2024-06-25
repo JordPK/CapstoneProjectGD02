@@ -5,6 +5,8 @@ using UnityEngine;
 public class UIAudioManager : Audio
 {
     public static UIAudioManager Instance;
+
+    
     void Awake()
     {
         if (Instance != null && Instance != this)
