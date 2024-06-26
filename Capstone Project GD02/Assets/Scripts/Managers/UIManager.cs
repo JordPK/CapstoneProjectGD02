@@ -134,6 +134,11 @@ public class UIManager : MonoBehaviour
     #region HUD
     IEnumerator UpdateResourceCount()
     {
+        resourceCounts[0] = 0;
+        resourceCounts[1] = 0;
+        resourceCounts[2] = 0;
+        resourceCounts[3] = 0;
+        resourceCounts[4] = 0;
         IndividualInventoryScript[] allInventories = FindObjectsOfType<IndividualInventoryScript>();
         //include code that runs through all inventories in the game and sums up the resource values
         foreach (IndividualInventoryScript inventory in allInventories)
