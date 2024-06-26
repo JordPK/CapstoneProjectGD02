@@ -50,7 +50,6 @@ public class TimeManager : MonoBehaviour
             //checks to see if day 10 was just finished and ends the game if it was
             if(GameManager.Instance.currentDay == 11)
             {
-                Debug.Log("VICTORY -- YOU WIN");
                 GameManager.Instance.GameVictory();
                 //insert a reference to the UI manager that handles the victory screen
             }
@@ -79,7 +78,7 @@ public class TimeManager : MonoBehaviour
     
             EventManager.Instance.RemoveResoruce("food", 1 * currentCrew.Length);
             EventManager.Instance.RemoveResoruce("water", 1 * currentCrew.Length);
-        
+            ResourceNegativeCheck();
     }
 
     public void NewWeightGoal()
@@ -95,7 +94,7 @@ public class TimeManager : MonoBehaviour
         int rand = Random.Range(0, 2);
         if(rand == 0) dailyEvent = EventManager.Instance.GenerateGoodEvents();
         else dailyEvent = EventManager.Instance.GenerateBadEvents();
-
+        UIManager.Instance.GetEventDescription(dailyEvent);
     }
 
     public void ResourceNegativeCheck()
@@ -104,7 +103,6 @@ public class TimeManager : MonoBehaviour
         {
             if (UIManager.Instance.resourceCounts[i] < 0)
             {
-                Debug.Log("GAME OVER");
                 GameManager.Instance.GameOver();
                 //insert a reference to a function within the UI Manager that handles the game over screen
             }
