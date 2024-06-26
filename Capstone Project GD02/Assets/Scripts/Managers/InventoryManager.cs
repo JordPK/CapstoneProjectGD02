@@ -70,15 +70,5 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void ConfirmEjection(GameObject crewMember, GameObject storage)
-    {
-        for (int i = 0; i < temporaryCrewInventory.Length; i++)
-        {
-            crewMember.GetComponent<IndividualInventoryScript>().inventory[i] = temporaryCrewInventory[i];
-        }
-        for (int i = 0; i < temporaryStorageInventory.Length; i++)
-        {
-            temporaryStorageInventory[i] = 0;
-        }
-    }
+    
 }

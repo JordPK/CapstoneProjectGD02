@@ -350,6 +350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 134700208}
   - component: {fileID: 134700209}
+  - component: {fileID: 134700210}
   m_Layer: 0
   m_Name: EventManager
   m_TagString: Untagged
@@ -398,6 +399,18 @@ MonoBehaviour:
   WaterRoomEvents: {fileID: 11400000, guid: e6d855ab24cb8f941bdae16c8425b02e, type: 2}
   generatedEvent: 
   allCrew: []
+--- !u!114 &134700210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134700207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd1e218f793d2449be8166d971698e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,9 +1074,6 @@ MonoBehaviour:
   resourceTrackers: {fileID: 0}
   fastForwardSpeedDisplay: {fileID: 0}
   optionsScreen: {fileID: 0}
-  crewMember: {fileID: 0}
-  storage: {fileID: 0}
-  airlock: {fileID: 0}
   crewInventoryUI: {fileID: 0}
   storageInventoryUI: {fileID: 0}
   confirmButton: {fileID: 0}
@@ -1336,6 +1346,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43865c5ba1c9184088f683e3c91f610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cellList: []
+  cratePrefab: {fileID: 0}
+  inBuildMode: 0
 --- !u!1 &1098445825
 GameObject:
   m_ObjectHideFlags: 0
@@ -2072,6 +2085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
+  music: []
 --- !u!82 &2007325027
 AudioSource:
   m_ObjectHideFlags: 0

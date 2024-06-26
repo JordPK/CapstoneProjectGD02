@@ -41,9 +41,7 @@ public class TopDownCameraController : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        moveDirection = new Vector3(horizontal, 0, vertical).normalized;
-
-        
+        moveDirection = new Vector3(horizontal, 0, vertical).normalized;  
     }
 
     void MobileInput()
@@ -123,6 +121,7 @@ public class TopDownCameraController : MonoBehaviour
             dpad.gameObject.SetActive(false);
         }
     }
+   
 }
 
 
