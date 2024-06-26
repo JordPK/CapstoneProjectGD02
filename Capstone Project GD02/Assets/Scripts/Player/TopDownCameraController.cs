@@ -31,7 +31,9 @@ public class TopDownCameraController : MonoBehaviour
 #elif UNITY_ANDROID
             //TouchInput();
 #endif
-            transform.Translate(moveDirection * CameraManager.Instance.cameraMoveSpeed * Time.deltaTime, Space.World);
+
+            transform.Translate(moveDirection * CameraManager.Instance.cameraMoveSpeed * Time.unscaledDeltaTime, Space.World);
+
         }
         
     }

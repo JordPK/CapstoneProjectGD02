@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 941848cdc155f44f0910864b5970d0ba, type: 3}
-  m_Name: Cabins
+  m_Name: Airlock
   m_EditorClassIdentifier: 
   goodEvents:
-  - The crew have started hosting sleepy-time yoga classes
+  - The most recent round of jettisoning went so well, the crew are all feeling better
+    despite their current situation.
   badEvent:
-  - a crew member garotted themself on a makeshift hammock
+  - Without a working airlock, the crew have taken to improvising spacewalks for
+    repairs using a bungee cord, a vacuum cleaner, and cunning use of the buddy system

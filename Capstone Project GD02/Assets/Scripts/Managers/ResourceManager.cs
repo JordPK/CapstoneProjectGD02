@@ -50,6 +50,21 @@ public class ResourceManager : MonoBehaviour
         }
 
     }
+
+    public void detectedInvenToadd(int toAdd, int resrouceIndex)
+    {
+        IndividualInventoryScript[] firstStorageRoom = FindObjectsOfType<IndividualInventoryScript>(); //.GetConponet<IndividualInventoryScript>();
+        foreach(IndividualInventoryScript inventory in firstStorageRoom)
+        {
+            if (inventory.gameObject.name.Contains("Storage"))
+            {
+                inventory.inventory[resrouceIndex] += toAdd;
+                Debug.Log("Added to " +  inventory.gameObject.name );
+                break;
+            }
+
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {

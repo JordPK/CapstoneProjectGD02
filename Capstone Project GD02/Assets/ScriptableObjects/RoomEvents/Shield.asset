@@ -12,5 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941848cdc155f44f0910864b5970d0ba, type: 3}
   m_Name: Shield
   m_EditorClassIdentifier: 
-  goodEvents: []
-  badEvent: []
+  goodEvents:
+  - 'Someone got lost in the shield generator and was able to turn it on immediately
+    under attack '
+  badEvent:
+  - Your crew open the ship up for "shieldless ship tours" claiming how you are entirely
+    lacking defensive capabilities....... this intimidated the enemies into giving
+    you resources.
+  - The best defence is a  good offence
+  - A group of crew mates were found huddling under blankets and umbrellas to make
+    up for the loss of the shields
+  - The crew undertake additional superstitious practices
+  - "That\u2019s no moon... it\u2019s a rogue asteroid heading straight for our hull!"

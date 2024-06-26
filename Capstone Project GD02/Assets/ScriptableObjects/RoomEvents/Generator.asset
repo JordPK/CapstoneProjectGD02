@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941848cdc155f44f0910864b5970d0ba, type: 3}
   m_Name: Generator
   m_EditorClassIdentifier: 
-  goodEvents: []
-  badEvent: []
+  goodEvents:
+  - A crew licked a generator, shocking
+  badEvent:
+  - 'The crew hosted a blackout party..... '
