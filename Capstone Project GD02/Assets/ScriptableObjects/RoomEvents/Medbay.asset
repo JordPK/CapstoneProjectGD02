@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941848cdc155f44f0910864b5970d0ba, type: 3}
   m_Name: Medbay
   m_EditorClassIdentifier: 
-  goodEvents: []
+  goodEvents:
+  - 
   badEvent: []

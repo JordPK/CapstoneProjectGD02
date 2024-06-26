@@ -12,7 +12,7 @@ public class TopDownCameraController : MonoBehaviour
     Vector3 touchStart, touchEnd;
 
     [SerializeField] Image dpad;
-    [SerializeField] float dpadRadius = 10;
+    [SerializeField] float dpadRadius = 300;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,8 +25,8 @@ public class TopDownCameraController : MonoBehaviour
         if (!CameraManager.Instance.isFirstPerson)
         {
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
-            DesktopInput();
-            //MobileInput();
+            //DesktopInput();
+            MobileInput();
 
 #elif UNITY_ANDROID
             //TouchInput();
@@ -60,7 +60,10 @@ public class TopDownCameraController : MonoBehaviour
             float x = touchEnd.x - touchStart.x;
             float y = touchEnd.y - touchStart.y;
 
-            moveDirection = new Vector3(x, 0, y).normalized;
+            float distance = (touchEnd - touchStart).magnitude;
+            float speed = Mathf.Clamp(distance / dpadRadius, 0,CameraManager.Instance.cameraMoveSpeed);
+
+            moveDirection = new Vector3(x, 0, y).normalized * speed;
 
             if ((touchEnd - touchStart).magnitude > dpadRadius)
             {
@@ -97,7 +100,10 @@ public class TopDownCameraController : MonoBehaviour
                 float x = touchEnd.x - touchStart.x;
                 float y = touchEnd.y - touchStart.y;
 
-                moveDirection = new Vector3(x, 0, y).normalized;
+                float distance = (touchEnd - touchStart).magnitude;
+                float speed = Mathf.Clamp(distance / dpadRadius, 0,1); 
+
+                moveDirection = new Vector3(x, 0, y).normalized * speed;
 
                 if ((touchEnd - touchStart).magnitude > dpadRadius)
                 {
@@ -108,11 +114,11 @@ public class TopDownCameraController : MonoBehaviour
                     dpad.transform.position = touchEnd;
                 }
             }
-            else
-            {
-                moveDirection = Vector2.zero;
-                dpad.gameObject.SetActive(false);
-            }
+        }
+        else
+        {
+            moveDirection = Vector2.zero;
+            dpad.gameObject.SetActive(false);
         }
     }
    

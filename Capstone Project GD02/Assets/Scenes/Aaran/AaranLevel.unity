@@ -2293,7 +2293,17 @@ MonoBehaviour:
   startingRoomCount: 0
   goodEventsPool: []
   badEventsPool: []
+  AmmoRoomEvents: {fileID: 0}
+  CabinsRoomEvents: {fileID: 0}
+  CockpitRoomEvents: {fileID: 0}
   FoodRoomEvents: {fileID: 11400000, guid: d06f0b1f93dfe444d99de01f85938149, type: 2}
+  GenRoomEvents: {fileID: 0}
+  MedbayRoomEvents: {fileID: 0}
+  ShieldRoomEvents: {fileID: 0}
+  StorageRoomEvents: {fileID: 0}
+  WaterRoomEvents: {fileID: 0}
+  generatedEvent: 
+  allCrew: []
 --- !u!4 &592195467
 Transform:
   m_ObjectHideFlags: 0
@@ -2550,6 +2560,7 @@ MonoBehaviour:
   medicalIncrease: 1
   ammoIncrease: 0
   fuelIncrease: 0
+  crewMultiplier: 1
 --- !u!1 &616662930
 GameObject:
   m_ObjectHideFlags: 0
@@ -3888,6 +3899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentDay: 0
+  isGameStart: 0
 --- !u!1 &1131373655
 GameObject:
   m_ObjectHideFlags: 0
@@ -4243,6 +4255,7 @@ MonoBehaviour:
   medicalIncrease: 0
   ammoIncrease: 0
   fuelIncrease: 0
+  crewMultiplier: 1
 --- !u!1 &1239687830
 GameObject:
   m_ObjectHideFlags: 0
@@ -5232,6 +5245,7 @@ MonoBehaviour:
   medicalIncrease: 0
   ammoIncrease: 0
   fuelIncrease: 0
+  crewMultiplier: 1
 --- !u!4 &1541201047 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 7d22befb952c070459bc8f06ba0a5f84,
@@ -6377,6 +6391,7 @@ MonoBehaviour:
   medicalIncrease: 0
   ammoIncrease: 0
   fuelIncrease: 1
+  crewMultiplier: 1
 --- !u!1 &1745073929
 GameObject:
   m_ObjectHideFlags: 0
@@ -6738,6 +6753,7 @@ MonoBehaviour:
   medicalIncrease: 0
   ammoIncrease: 1
   fuelIncrease: 0
+  crewMultiplier: 1
 --- !u!1 &1838292348
 GameObject:
   m_ObjectHideFlags: 0
@@ -8161,7 +8177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2106910113
 Transform:
   m_ObjectHideFlags: 0
