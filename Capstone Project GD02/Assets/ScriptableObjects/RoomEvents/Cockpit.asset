@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941848cdc155f44f0910864b5970d0ba, type: 3}
   m_Name: Cockpit
   m_EditorClassIdentifier: 
-  goodEvents: []
-  badEvent: []
+  goodEvents:
+  - You encountered a derelict spaceship
+  badEvent:
+  - Your crew did a barrel roll.

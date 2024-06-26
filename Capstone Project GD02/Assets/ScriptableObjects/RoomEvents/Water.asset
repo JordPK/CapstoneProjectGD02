@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941848cdc155f44f0910864b5970d0ba, type: 3}
   m_Name: Water
   m_EditorClassIdentifier: 
-  goodEvents: []
-  badEvent: []
+  goodEvents:
+  - 'With excess water supplies, the crew put together a fun slip and slide  down
+    the longest ship corridor. '
+  badEvent:
+  - With no fresh water source, the crew have started taking after ancient survival
+    expert Bear Grylls by drinking their own urine.
+  - The crew invented powdered water, just add water.....

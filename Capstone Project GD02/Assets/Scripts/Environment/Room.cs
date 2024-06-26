@@ -63,6 +63,7 @@ public class Room : MonoBehaviour
     {
         detachAudioSFX.playDetachSound();
 
+        
         Debug.Log("Room detaching all crew members and dead.");
         ResourceManager.Instance.detectedInvenToRemove(5, 0);
 

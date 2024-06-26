@@ -12,5 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941848cdc155f44f0910864b5970d0ba, type: 3}
   m_Name: Ammo
   m_EditorClassIdentifier: 
-  goodEvents: []
-  badEvent: []
+  goodEvents:
+  - The best scoundrel always shoots first, one of your crew is a wannabe bandit
+  badEvent:
+  - "You try to negotiate with your enemies, they laughed at you and opened fire
+    knowing they\u2019d already won. "
+  - Your crew have deicides due to lack of ammo, they shall throw cheese at their
+    enemies. the smellier the better.
+  - 'or two seconds, a crew member suffered excruciating big toe pain. at least they
+    blew up after stubbing it on a missile. '

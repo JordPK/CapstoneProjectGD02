@@ -12,5 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941848cdc155f44f0910864b5970d0ba, type: 3}
   m_Name: Medbay
   m_EditorClassIdentifier: 
-  goodEvents: []
-  badEvent: []
+  goodEvents:
+  - 'Your medical staff had a breakthrough. '
+  - Due to new techniques your medical team are now twice as productive during working
+    hours.
+  badEvent:
+  - tepped on a nail and got tetanus, they died within a day
+  - 'Paper cut left to the amputation of  a crews arm and both legs. '
+  - "There\u2019s been an outbreak of hypochondriacs due to searching symptoms online"
+  - One of the crews robotic eye malfunctioned and is now always zoomed in on the
+    subatomic level
+  - 'The mess-hall becomes the new Med Bay leading to more inefficient medical tools. '
+  - "Due to lack of supplies the crew concocted a grenade powered bone saw for the
+    new quicker method of amputation, unfortunately there was \u201Can accident\u201D"

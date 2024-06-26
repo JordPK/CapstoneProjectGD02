@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941848cdc155f44f0910864b5970d0ba, type: 3}
   m_Name: Storage
   m_EditorClassIdentifier: 
-  goodEvents: []
-  badEvent: []
+  goodEvents:
+  - A crew member found extra resources tucked away at the back of the storeroom.
+  - A crew member was the world champion bag packer and found a perfect way to store
+    good
+  badEvent:
+  - The crew decided to play giant jenga in the the store room
