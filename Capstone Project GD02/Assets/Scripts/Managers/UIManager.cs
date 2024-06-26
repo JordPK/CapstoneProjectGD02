@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -21,12 +23,23 @@ public class UIManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
+    [Header("MainMenu References")]
+    [SerializeField] GameObject mainMenuScreen, newGameScreen, mainMenuOptionsScreen;
 
-    [SerializeField] GameObject mainMenuScreen, newGameScreen, mainMenuOptionsScreen, resourceTrackers, fastForwardSpeedDisplay,optionsScreen;
+    [Header("HUD References")]
+    [SerializeField] GameObject resourceTrackers, fastForwardSpeedDisplay, optionsScreen, crewCount;
+    [SerializeField] Slider masterSlider, musicSlider, sfxSlider, uiSfxSlider, fpsSlider, tdSlider;
+
+    [Header("Inventory Management References")]
     [SerializeField] GameObject crewInventoryUI, storageInventoryUI, confirmButton, confirmEjectButton, itemCountButtons, inventoryScreen;
+
+    [Header("Event References")]
+    [SerializeField] GameObject eventScreen, eventBodyText;
+
+    [Header("Game Over and Victory References")]
+    [SerializeField] GameObject gameOverScreen, gameOverBodyText, victoryScreen, victoryBodyText;
+
     private GameObject crewMember, storage, airlock;
-    public int gameSceneIndex;
-    public bool isMainLevel;
     private int fastForwardIndex = 3;
     private int itemCount = 1;
     public int[] resourceCounts = new int[5];
@@ -34,14 +47,34 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //-------------DELETE THIS FOR THE ACTUAL INTEGRATION WHEN NOT TESTING-------------
         StartCoroutine(UpdateResourceCount());
+
+        //sets the slider values from player prefs on first load
+        //MASTER
+        masterSlider.value = PlayerPrefs.GetFloat("MasterVol", 1);
+        AudioMixerManager.Instance.masterVolume = -50 * masterSlider.value;
+        //BGM
+        musicSlider.value = PlayerPrefs.GetFloat("MusicVol", 1);
+        AudioMixerManager.Instance.bgmVolume = -50 * musicSlider.value;
+        //SFX
+        sfxSlider.value = PlayerPrefs.GetFloat("SFXVol", 1);
+        AudioMixerManager.Instance.sfxVolume = -50 * sfxSlider.value;
+        //UI
+        uiSfxSlider.value = PlayerPrefs.GetFloat("UISFXVol", 1);
+        AudioMixerManager.Instance.uiVolume = -50 * uiSfxSlider.value;
+        //FPS SENS
+        fpsSlider.value = PlayerPrefs.GetFloat("FPSSens", 1);
+        //link to camera controller script
+        //TD SENS
+        tdSlider.value = PlayerPrefs.GetFloat("TDSens", 1);
+        //link to camera controller script
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //-------------UNCOMMENT THIS FOR THE ACTUAL INTEGRATION WHEN NOT TESTING-------------
+        //-------------IGNORE THIS, RYAN MIGHT NEED IT LATER BUT PROBABLY NOT-------------
         /*if(SceneManager.GetActiveScene().buildIndex == gameSceneIndex && !isMainLevel)
         {
             isMainLevel = true;
@@ -101,6 +134,11 @@ public class UIManager : MonoBehaviour
     #region HUD
     IEnumerator UpdateResourceCount()
     {
+        resourceCounts[0] = 0;
+        resourceCounts[1] = 0;
+        resourceCounts[2] = 0;
+        resourceCounts[3] = 0;
+        resourceCounts[4] = 0;
         IndividualInventoryScript[] allInventories = FindObjectsOfType<IndividualInventoryScript>();
         //include code that runs through all inventories in the game and sums up the resource values
         foreach (IndividualInventoryScript inventory in allInventories)
@@ -116,7 +154,8 @@ public class UIManager : MonoBehaviour
             
             resourceText[i].text = resourceCounts[i].ToString();
         }
-
+        Crew[] crewCountArray = FindObjectsOfType<Crew>();
+        crewCount.GetComponent<TMP_Text>().text = crewCountArray.Length.ToString();
         yield return new WaitForSeconds(2);
         StartCoroutine(UpdateResourceCount());
     }
@@ -125,11 +164,13 @@ public class UIManager : MonoBehaviour
     public void PauseGame()
     {
         //access the game manager to adjust the time scale to zero
+        GameManager.Instance.SetTimescale(0f);
     }
 
     public void PlayGame()
     {
         //access the game manager to adjust the time scale to one
+        GameManager.Instance.SetTimescale(1f);
     }
 
     public void FastForward()
@@ -137,6 +178,7 @@ public class UIManager : MonoBehaviour
         int fastForwardSpeed = 2 + fastForwardIndex % 3;
         fastForwardSpeedDisplay.GetComponent<TMP_Text>().text = $"x{fastForwardSpeed}";
         //link with a function in the gmae manager that sets the time scale to the fast forward speed's value
+        GameManager.Instance.SetTimescale(fastForwardSpeed);
         fastForwardIndex++;
     }
 
@@ -150,6 +192,37 @@ public class UIManager : MonoBehaviour
     {
         optionsScreen.SetActive(false);
         PlayGame();
+    }
+
+    public void UpdateMasterVolume()
+    {
+        PlayerPrefs.SetFloat("MasterVol", masterSlider.value);
+        AudioMixerManager.Instance.masterVolume = -50 * masterSlider.value;
+    }
+    public void UpdateMusicVolume()
+    {
+        PlayerPrefs.SetFloat("MusicVol", musicSlider.value);
+        AudioMixerManager.Instance.bgmVolume = -50 * musicSlider.value;
+    }
+    public void UpdateSFXVolume()
+    {
+        PlayerPrefs.SetFloat("SFXVol", sfxSlider.value);
+        AudioMixerManager.Instance.sfxVolume = -50 * sfxSlider.value;
+    }
+    public void UpdateUISFXVolume()
+    {
+        PlayerPrefs.SetFloat("UISFXVol", uiSfxSlider.value);
+        AudioMixerManager.Instance.uiVolume = -50 * uiSfxSlider.value;
+    }
+    public void FPSSensitivity()
+    {
+        PlayerPrefs.SetFloat("FPSSens", fpsSlider.value);
+        //link to camera controller script
+    }
+    public void TDSensitivity()
+    {
+        PlayerPrefs.SetFloat("TDSens", tdSlider.value);
+        //link to camera controller script
     }
 
 
@@ -176,7 +249,7 @@ public class UIManager : MonoBehaviour
         //sets the inventory screen to active
         inventoryScreen.SetActive(true);
         confirmButton.SetActive(true);
-
+        GameManager.Instance.SetTimescale(0f);
     }
 
     public void ShowEjection()
@@ -208,6 +281,7 @@ public class UIManager : MonoBehaviour
 
         inventoryScreen.SetActive(false);
         confirmButton.SetActive(false);
+        GameManager.Instance.SetTimescale(1f);
     }
 
     
@@ -226,6 +300,53 @@ public class UIManager : MonoBehaviour
         {
             storageSlots[i].text = InventoryManager.Instance.temporaryStorageInventory[i].ToString();
         }
+    }
+
+    #endregion
+
+
+    #region Random Events
+
+
+    public void GetEventDescription(string bodyText)
+    {
+        eventBodyText.GetComponent<TMP_Text>().text = bodyText;
+        eventScreen.SetActive(true);
+        GameManager.Instance.SetTimescale(0f);
+    }
+
+    public void EventOption1Button()
+    {
+        EventManager.Instance.checkEventType(true);
+        eventScreen.SetActive(false);
+        GameManager.Instance.SetTimescale(1f);
+    }
+    public void EventOption2Button()
+    {
+        EventManager.Instance.checkEventType(false);
+        eventScreen.SetActive(false);
+        GameManager.Instance.SetTimescale(1f);
+    }
+
+    #endregion
+
+
+    #region Game Over Screens
+
+    public void GameOverScreen()
+    {
+        gameOverBodyText.GetComponent<TMP_Text>().text = $"Unlucky!\r\n\r\nYour grade for this run was: {ScoreEvaluation.Instance.grade}";
+        gameOverScreen.SetActive(true);
+    }
+
+    public void VictoryScreen()
+    {
+        victoryBodyText.GetComponent<TMP_Text>().text = $"Congratulations on surviving for 10 days!\r\n\r\nYour grade for this run was: {ScoreEvaluation.Instance.grade}";
+        victoryScreen.SetActive(true);
+    }
+    public void MainMenuButton(int scene)
+    {
+        SceneManager.LoadScene(scene);
     }
 
     #endregion
