@@ -8,6 +8,7 @@ public class CameraManager : MonoBehaviour
 
     public static CameraManager Instance {  get; private set; }
 
+    [SerializeField] Camera mainCam;
     public CinemachineVirtualCamera topDownCam;
     public CinemachineVirtualCamera fpsCam;
 
@@ -22,6 +23,9 @@ public class CameraManager : MonoBehaviour
     public float FPSCamSensitivity;
 
     [SerializeField] List<GameObject> roofs;
+    [SerializeField] List<GameObject> lights;
+
+    [SerializeField] SkinnedMeshRenderer CaptainCharacter;
 
     public bool isFirstPerson = false;
     void Awake()
@@ -39,15 +43,15 @@ public class CameraManager : MonoBehaviour
 
         // finds all roofs on start 
         roofs = new List<GameObject>(GameObject.FindGameObjectsWithTag("Roof"));
-        
-        // Set roofs default state
-        SetRoofs(false);
+        lights = new List<GameObject>(GameObject.FindGameObjectsWithTag("Light"));
+
         //only changes are here to proove save loading works lmao 
         Debug.Log(Application.persistentDataPath);
         //SaveGameManager.SaveFloat(Application.persistentDataPath + "/CameraSettings.txt", "FPSCamSensitivity", FPSCamSensitivity);
+        
         string test = Application.persistentDataPath + "/CameraSettings.txt";
         Debug.Log(test);
-        FPSCamSensitivity = SaveGameManager.LoadFloatValue(test, "FPSCamSensitivity");
+        //FPSCamSensitivity = SaveGameManager.LoadFloatValue(test, "FPSCamSensitivity");
         Debug.Log("FPS Sensitvity loaded : " +  FPSCamSensitivity);
     }
 
@@ -56,7 +60,10 @@ public class CameraManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V))
         {
             ChangePerspective();
+            //UIManager.Instance.ToggleCrosshair(isFirstPerson);
         }
+
+        FPSCameraDistanceCheck();
 
     }
 
@@ -66,14 +73,12 @@ public class CameraManager : MonoBehaviour
         {
             isFirstPerson = true;
             fpsCam.Priority = 2;
-            SetRoofs(true);
             
         }
         else if (isFirstPerson)
         {
             fpsCam.Priority = 0;
             isFirstPerson = false;
-            SetRoofs(false);
         }
     }
 
@@ -83,6 +88,31 @@ public class CameraManager : MonoBehaviour
         foreach (GameObject roof in roofs)
         {
             roof.SetActive(isActive);
+        }
+    }
+
+    void SetLights(bool isActive)
+    {
+
+        foreach (GameObject light in lights)
+        {
+            light.GetComponent<MeshRenderer>().enabled = isActive;
+        }
+    }
+
+    void FPSCameraDistanceCheck()
+    {
+        if (Vector3.Distance(mainCam.transform.position, fpsCam.transform.position) < 1.5f)
+        {
+            SetRoofs(true);
+            SetLights(true);
+            CaptainCharacter.enabled = false;
+        }
+        else
+        {
+            SetRoofs(false);
+            SetLights(false);
+            CaptainCharacter.enabled = true;
         }
     }
 
