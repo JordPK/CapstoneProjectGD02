@@ -2526,6 +2526,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: 0000000000000000000000000000000000000000
+  isFull: 0
+  maxSize: 0
 --- !u!114 &3849549842474846481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45904,7 +45906,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: -3743478577051307462}
     - target: {fileID: 4846519481815019608, guid: fe7042b846c381940946c167b9c0486c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -45918,7 +45920,7 @@ PrefabInstance:
     - target: {fileID: 4846519481815019608, guid: fe7042b846c381940946c167b9c0486c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: playDetachSound
+      value: RoomDetached
       objectReference: {fileID: 0}
     - target: {fileID: 4846519481815019608, guid: fe7042b846c381940946c167b9c0486c,
         type: 3}
@@ -45928,7 +45930,7 @@ PrefabInstance:
     - target: {fileID: 4846519481815019608, guid: fe7042b846c381940946c167b9c0486c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DetachRoomAudio, Assembly-CSharp
+      value: Room, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4846519481815019608, guid: fe7042b846c381940946c167b9c0486c,
         type: 3}

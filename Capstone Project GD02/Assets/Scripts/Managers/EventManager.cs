@@ -48,9 +48,8 @@ public class EventManager : MonoBehaviour
     {
         allCrew = FindObjectsOfType<Crew>().ToList();
         startingRoomCount = FindObjectsOfType<Room>().Length;
+        
         AddGoodToPool(AirlockRoomEvents);
-        Debug.Log(AirlockRoomEvents.goodEvents.ElementAt(0));
-        Debug.Log("newline test \n test new line in debugs");
         AddGoodToPool(AmmoRoomEvents);
         AddGoodToPool(CabinsRoomEvents);
         AddGoodToPool(CockpitRoomEvents);
