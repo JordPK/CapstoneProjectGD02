@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Cabins
   m_EditorClassIdentifier: 
   goodEvents:
-  - The crew have started hosting sleepy-time yoga classes
+  - The crew have started hosting sleepy-time yoga classes \n Feeling well rested
+    and calm. (+ Production Boost) Press any Option to Continue.
   badEvent:
-  - a crew member garotted themself on a makeshift hammock
+  - 'Strange and unforseen sleeping arrangements have popped up across the ship 
+    \nOption1:  A crew member garotted themself on a makeshift hammock (- 1 Crew) 
+    \nOption2: The crew took their time navigating the new layout. (- Speed, - Production
+    - 3 Medical Supplies)'

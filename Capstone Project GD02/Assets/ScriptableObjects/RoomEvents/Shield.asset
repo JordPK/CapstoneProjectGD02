@@ -13,14 +13,21 @@ MonoBehaviour:
   m_Name: Shield
   m_EditorClassIdentifier: 
   goodEvents:
-  - 'Someone got lost in the shield generator and was able to turn it on immediately
-    under attack '
+  - Someone got lost in the shield generator.  \n Fortunatly he saw the ship was
+    under attack and immediatly turned on the shield. (+ 15 Ammo, 5 Medical Supplies)
+    Press any Option to Continue.
   badEvent:
   - Your crew open the ship up for "shieldless ship tours" claiming how you are entirely
-    lacking defensive capabilities....... this intimidated the enemies into giving
-    you resources.
-  - The best defence is a  good offence
+    lacking defensive capabilities....... \n this intimidated the enemies into giving
+    you resources. (+ 15 Water, + 10 Food)Press any Option to Continue.
+  - The best defence is a  good offence \n We shot first.. (-25 Ammo) Press any Option
+    to Continue.
   - A group of crew mates were found huddling under blankets and umbrellas to make
-    up for the loss of the shields
-  - The crew undertake additional superstitious practices
-  - "That\u2019s no moon... it\u2019s a rogue asteroid heading straight for our hull!"
+    up for the loss of the shields \n It was of little comfort. (3 Crew stopped working)
+    Press any Option to Continue.
+  - 'The crew undertake additional superstitious practices \nOption 1: Due to rumors
+    of people falling through the floor the crew no longer steps on seams.(Speed
+    Debuff) \n Option 2: They burn paper work that contains the word phase. (Fuel
+    -25)'
+  - "That\u2019s no moon... it\u2019s a rogue asteroid heading straight for our hull!
+    \\n Option 1: Near Miss.(-15 Medical Supplies) \\nOption 2: Direct Hit(- 1 Room)"

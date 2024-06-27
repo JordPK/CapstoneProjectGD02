@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Generator
   m_EditorClassIdentifier: 
   goodEvents:
-  - A crew licked a generator, shocking
+  - A crew licked a generator, shocking \n The electric surge turned them into the
+    Flash, for a moment at least. Press Any Option to Continue.(Speed Boost)
   badEvent:
-  - 'The crew hosted a blackout party..... '
+  - 'The crew hosted a blackout party.....  \nOption 1:They over indulged (- 10 food,
+    - 25 water, - 5 fuel) \nOption 2: Over drinking seemed fun last night, however
+    you don''t have the metabolism of the flash (speed debuff, - Production)'
