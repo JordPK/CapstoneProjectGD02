@@ -60,7 +60,7 @@ public class CameraManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V))
         {
             ChangePerspective();
-            //UIManager.Instance.ToggleCrosshair(isFirstPerson);
+            UIManager.Instance.ToggleCrosshair(isFirstPerson);
         }
 
         FPSCameraDistanceCheck();
