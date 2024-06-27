@@ -29,7 +29,7 @@ public class agent : MonoBehaviour
     {
         Animation();
     }
-
+   
     private void OnMouseOver()
     {
         if (!CameraManager.Instance.isFirstPerson)
