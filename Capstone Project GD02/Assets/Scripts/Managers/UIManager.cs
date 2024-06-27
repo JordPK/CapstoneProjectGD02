@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject mainMenuScreen, newGameScreen, mainMenuOptionsScreen;
 
     [Header("HUD References")]
-    [SerializeField] GameObject resourceTrackers, fastForwardSpeedDisplay, optionsScreen, crewCount;
+    [SerializeField] GameObject resourceTrackers, fastForwardSpeedDisplay, optionsScreen, crewCount, timeText, dayText, crosshair;
     [SerializeField] Slider masterSlider, musicSlider, sfxSlider, uiSfxSlider, fpsSlider, tdSlider;
 
     [Header("Inventory Management References")]
@@ -48,26 +48,27 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(UpdateResourceCount());
+        StartCoroutine(UpdateTime());
 
         //sets the slider values from player prefs on first load
         //MASTER
-        masterSlider.value = PlayerPrefs.GetFloat("MasterVol", 1);
-        AudioMixerManager.Instance.masterVolume = -50 * masterSlider.value;
+        masterSlider.value = PlayerPrefs.GetFloat("MasterVol", 2);
+        AudioMixerManager.Instance.masterVolume = -80 + (40 * masterSlider.value);
         //BGM
-        musicSlider.value = PlayerPrefs.GetFloat("MusicVol", 1);
-        AudioMixerManager.Instance.bgmVolume = -50 * musicSlider.value;
+        musicSlider.value = PlayerPrefs.GetFloat("MusicVol", 2);
+        AudioMixerManager.Instance.bgmVolume = -80 + (40 * musicSlider.value);
         //SFX
-        sfxSlider.value = PlayerPrefs.GetFloat("SFXVol", 1);
-        AudioMixerManager.Instance.sfxVolume = -50 * sfxSlider.value;
+        sfxSlider.value = PlayerPrefs.GetFloat("SFXVol", 2);
+        AudioMixerManager.Instance.sfxVolume = -80 + (40 * sfxSlider.value);
         //UI
-        uiSfxSlider.value = PlayerPrefs.GetFloat("UISFXVol", 1);
-        AudioMixerManager.Instance.uiVolume = -50 * uiSfxSlider.value;
+        uiSfxSlider.value = PlayerPrefs.GetFloat("UISFXVol", 2);
+        AudioMixerManager.Instance.uiVolume = -80 + (40 * uiSfxSlider.value);
         //FPS SENS
         fpsSlider.value = PlayerPrefs.GetFloat("FPSSens", 1);
-        //link to camera controller script
+        CameraManager.Instance.FPSCamSensitivity = 100 * fpsSlider.value;
         //TD SENS
         tdSlider.value = PlayerPrefs.GetFloat("TDSens", 1);
-        //link to camera controller script
+        CameraManager.Instance.cameraMoveSpeed = 30 * tdSlider.value;
 
     }
 
@@ -159,6 +160,17 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         StartCoroutine(UpdateResourceCount());
     }
+
+    IEnumerator UpdateTime()
+    {
+        int hrs = Mathf.FloorToInt((TimeManager.Instance.currentTime / TimeManager.Instance.dayDuration) * 24);
+        Debug.Log(hrs);
+        timeText.GetComponent<TMP_Text>().text = $"{hrs}:00";
+        dayText.GetComponent<TMP_Text>().text = $"Day {GameManager.Instance.currentDay}";
+
+        yield return new WaitForSeconds(1);
+        StartCoroutine(UpdateTime());
+    }
    
 
     public void PauseGame()
@@ -197,32 +209,38 @@ public class UIManager : MonoBehaviour
     public void UpdateMasterVolume()
     {
         PlayerPrefs.SetFloat("MasterVol", masterSlider.value);
-        AudioMixerManager.Instance.masterVolume = -50 * masterSlider.value;
+        AudioMixerManager.Instance.masterVolume = -80 + (40 * masterSlider.value);
     }
     public void UpdateMusicVolume()
     {
         PlayerPrefs.SetFloat("MusicVol", musicSlider.value);
-        AudioMixerManager.Instance.bgmVolume = -50 * musicSlider.value;
+        AudioMixerManager.Instance.bgmVolume = -80 + (40 * musicSlider.value);
     }
     public void UpdateSFXVolume()
     {
         PlayerPrefs.SetFloat("SFXVol", sfxSlider.value);
-        AudioMixerManager.Instance.sfxVolume = -50 * sfxSlider.value;
+        AudioMixerManager.Instance.sfxVolume = -80 + (40 * sfxSlider.value);
     }
     public void UpdateUISFXVolume()
     {
         PlayerPrefs.SetFloat("UISFXVol", uiSfxSlider.value);
-        AudioMixerManager.Instance.uiVolume = -50 * uiSfxSlider.value;
+        AudioMixerManager.Instance.uiVolume = -80 + (40 * uiSfxSlider.value);
     }
     public void FPSSensitivity()
     {
         PlayerPrefs.SetFloat("FPSSens", fpsSlider.value);
-        //link to camera controller script
+        CameraManager.Instance.FPSCamSensitivity = 100 * fpsSlider.value;
     }
     public void TDSensitivity()
     {
         PlayerPrefs.SetFloat("TDSens", tdSlider.value);
-        //link to camera controller script
+        CameraManager.Instance.cameraMoveSpeed = 30 * tdSlider.value;
+    }
+
+
+    public void ToggleCrosshair(bool active)
+    {
+        crosshair.SetActive(active);
     }
 
 
