@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3514238664890289274}
   m_Layer: 0
   m_Name: container_small
-  m_TagString: Untagged
+  m_TagString: Crate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,6 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: 0000000000000000000000000000000000000000
+  isFull: 0
+  maxSize: 0
 --- !u!1 &8278091693206160185
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,8 +157,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.00499, y: 3.393944, z: 3.00499}
-  m_Center: {x: 0, y: 0.8484862, z: 0}
+  m_Size: {x: 3.00499, y: 0.6115933, z: 3.00499}
+  m_Center: {x: 0, y: 0.10255289, z: 0}
 --- !u!1 &8505312710089158620
 GameObject:
   m_ObjectHideFlags: 0

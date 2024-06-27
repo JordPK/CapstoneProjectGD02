@@ -15,6 +15,7 @@ public class GridManager : MonoBehaviour
     public Material defaultMat;
 
     public bool inBuildMode = false;
+    public bool overCrate = false;
     public Vector3 spawnCell;
 
     void Awake()
@@ -38,6 +39,7 @@ public class GridManager : MonoBehaviour
         if (inBuildMode)
         {
             spawnCell = ClosestCell();
+            overCrate = IsMouseOverCrate();
         }
         // Enter/ exit build mode on B key
         if (Input.GetKeyDown(KeyCode.B))
@@ -45,13 +47,22 @@ public class GridManager : MonoBehaviour
             ToggleBuildMode();
         }
 
-        //Vector3 spawnPos = ClosestCell();
+        
         if (inBuildMode && Input.GetMouseButtonDown(0))
         {
-            Instantiate(cratePrefab, spawnCell, Quaternion.identity);
-            inBuildMode = false;
-        }
+            if (overCrate)
+            {
+                DestroyCrateUnderMouse();
+                inBuildMode=false;
+            }
 
+            else
+            {
+                Instantiate(cratePrefab, spawnCell, Quaternion.identity);
+                inBuildMode = false;
+            }
+        }
+        
         if (inBuildMode)
         {
             SetCells(true);
@@ -112,6 +123,33 @@ public class GridManager : MonoBehaviour
     public void ToggleBuildMode()
     {
         inBuildMode = !inBuildMode;
+    }
+    private void DestroyCrateUnderMouse()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 9999f))
+        {
+            
+            if (hit.transform.CompareTag("Crate"))
+            {
+                Destroy(hit.transform.gameObject);
+            }
+        }
+    }
+    private bool IsMouseOverCrate()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 9999f))
+        {
+            
+            return hit.transform.CompareTag("Crate");
+        }
+
+        return false;
     }
 
 }
