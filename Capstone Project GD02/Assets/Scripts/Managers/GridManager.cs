@@ -8,9 +8,11 @@ public class GridManager : MonoBehaviour
 {
     public static GridManager Instance;
 
-
     [SerializeField] List<GameObject> cellList;
     [SerializeField] GameObject cratePrefab;
+
+    public Material highlightMaterial;
+    public Material defaultMat;
 
     public bool inBuildMode = false;
     public Vector3 spawnCell;
@@ -33,16 +35,18 @@ public class GridManager : MonoBehaviour
 
     void Update()
     {
-        
-        if (inBuildMode) { spawnCell = ClosestCell(); }
+        if (inBuildMode)
+        {
+            spawnCell = ClosestCell();
+        }
         // Enter/ exit build mode on B key
         if (Input.GetKeyDown(KeyCode.B))
         {
             ToggleBuildMode();
         }
-       
+
         //Vector3 spawnPos = ClosestCell();
-        if(inBuildMode && Input.GetMouseButtonDown(0))
+        if (inBuildMode && Input.GetMouseButtonDown(0))
         {
             Instantiate(cratePrefab, spawnCell, Quaternion.identity);
             inBuildMode = false;
@@ -64,6 +68,12 @@ public class GridManager : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
+        // Reset material of all cells to default
+        foreach (GameObject cell in cellList)
+        {
+            cell.GetComponent<MeshRenderer>().material = defaultMat;
+        }
+
         if (Physics.Raycast(ray, out hit, 9999f))
         {
             GameObject closestCell = null;
@@ -79,6 +89,12 @@ public class GridManager : MonoBehaviour
                 }
             }
 
+            // Set material of closest cell to highlight
+            if (closestCell != null)
+            {
+                closestCell.GetComponent<MeshRenderer>().material = highlightMaterial;
+            }
+
             return closestCell.transform.position;
         }
 
@@ -90,7 +106,7 @@ public class GridManager : MonoBehaviour
 
         foreach (GameObject cell in cellList)
         {
-           cell.SetActive(isActive);
+            cell.SetActive(isActive);
         }
     }
     public void ToggleBuildMode()

@@ -35236,6 +35236,7 @@ MonoBehaviour:
   startingRoomCount: 0
   goodEventsPool: []
   badEventsPool: []
+  AirlockRoomEvents: {fileID: 11400000, guid: fad9bd0a70139e540b923917cc6c32e1, type: 2}
   AmmoRoomEvents: {fileID: 11400000, guid: d9521137fffc94547b7f01eb92dfe18e, type: 2}
   CabinsRoomEvents: {fileID: 11400000, guid: e621e78f743e4e24f9e3e787a9a1ea87, type: 2}
   CockpitRoomEvents: {fileID: 11400000, guid: 3b7be7f494b841b469e0a4a0fd725890, type: 2}
@@ -35246,6 +35247,11 @@ MonoBehaviour:
   StorageRoomEvents: {fileID: 11400000, guid: 412da95aa17455c4fa168c0f2fa3295a, type: 2}
   WaterRoomEvents: {fileID: 11400000, guid: e6d855ab24cb8f941bdae16c8425b02e, type: 2}
   generatedEvent: 
+  medicalCostMultiplier: 0
+  ammoCostMulti: 0
+  fuelCostMulti: 0
+  foodCostMulti: 0
+  waterCostMulti: 0
   allCrew: []
 --- !u!1 &737365578
 GameObject:
@@ -37661,6 +37667,7 @@ MonoBehaviour:
   cellList: []
   cratePrefab: {fileID: 155844, guid: 6456a4784f31cab439d29b7e3bb286a4, type: 3}
   inBuildMode: 0
+  spawnCell: {x: 0, y: 0, z: 0}
 --- !u!1 &865441606
 GameObject:
   m_ObjectHideFlags: 0
@@ -38848,7 +38855,7 @@ RectTransform:
   - {fileID: 544506640}
   - {fileID: 720790211}
   m_Father: {fileID: 2017868619}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -40973,7 +40980,7 @@ MonoBehaviour:
   moveDirection: {x: 0, y: 0, z: 0}
   lookDirection: {x: 0, y: 0, z: 0}
   dpad: {fileID: 1236738819}
-  dpadRadius: 10
+  dpadRadius: 25
 --- !u!1 &1098523318
 GameObject:
   m_ObjectHideFlags: 0
@@ -42090,13 +42097,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1203336496}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1383141809}
-  m_RootOrder: 5
+  m_Father: {fileID: 2017868619}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -43925,7 +43932,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1902102694}
+  m_Father: {fileID: 2017868619}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -45731,9 +45738,8 @@ RectTransform:
   - {fileID: 742754232}
   - {fileID: 1116281575}
   - {fileID: 742060531}
-  - {fileID: 1203336497}
   m_Father: {fileID: 2017868619}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -46021,7 +46027,7 @@ RectTransform:
   - {fileID: 596683728}
   - {fileID: 613889629}
   m_Father: {fileID: 2017868619}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -49640,7 +49646,7 @@ RectTransform:
   - {fileID: 228721039}
   - {fileID: 1444595299}
   m_Father: {fileID: 2017868619}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -52526,9 +52532,8 @@ RectTransform:
   - {fileID: 1509933175}
   - {fileID: 79101023}
   - {fileID: 1302092744}
-  - {fileID: 1294297862}
   m_Father: {fileID: 2017868619}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -53779,7 +53784,9 @@ RectTransform:
   - {fileID: 583230914}
   - {fileID: 583038310}
   - {fileID: 1899008530}
+  - {fileID: 1203336497}
   - {fileID: 1383141809}
+  - {fileID: 1294297862}
   - {fileID: 1902102694}
   - {fileID: 1423895157}
   - {fileID: 948578454}
