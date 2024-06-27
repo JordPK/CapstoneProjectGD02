@@ -49,6 +49,8 @@ public class EventManager : MonoBehaviour
         allCrew = FindObjectsOfType<Crew>().ToList();
         startingRoomCount = FindObjectsOfType<Room>().Length;
         AddGoodToPool(AirlockRoomEvents);
+        Debug.Log(AirlockRoomEvents.goodEvents.ElementAt(0));
+        Debug.Log("newline test \n test new line in debugs");
         AddGoodToPool(AmmoRoomEvents);
         AddGoodToPool(CabinsRoomEvents);
         AddGoodToPool(CockpitRoomEvents);
@@ -132,11 +134,12 @@ public class EventManager : MonoBehaviour
         {
             BadSpaceStoners(playerChoice);
 
-            Debug.Log("Removed food from if else check event type function");
+            
         }
         else if (generatedEvent.Contains("hungry."))
         {
             BadSnickers(playerChoice);
+            
         }
         else if (generatedEvent.Contains("spa-ishing"))
         {
@@ -302,6 +305,7 @@ public class EventManager : MonoBehaviour
         else if (generatedEvent.Contains("extra"))
         {
             GoodExtra();
+            
         }
         #endregion
 
