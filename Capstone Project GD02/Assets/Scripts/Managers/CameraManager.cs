@@ -12,6 +12,8 @@ public class CameraManager : MonoBehaviour
     public CinemachineVirtualCamera topDownCam;
     public CinemachineVirtualCamera fpsCam;
 
+    [SerializeField] Material materialSwitch;
+
     [Header("Third Person Camera Controls")]
     public float cameraMoveSpeed = 5;
     public float cameraRotateSpeed = 5;
@@ -27,6 +29,8 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] SkinnedMeshRenderer CaptainCharacter;
 
+    Vector3 topDownCameraOffset;
+
     public bool isFirstPerson = false;
     void Awake()
     {
@@ -40,6 +44,8 @@ public class CameraManager : MonoBehaviour
     void Start()
     {
         topDownCam.Priority = 1;
+
+        topDownCameraOffset = topDownCam.transform.position - CaptainCharacter.transform.position;
 
         // finds all roofs on start 
         roofs = new List<GameObject>(GameObject.FindGameObjectsWithTag("Roof"));
@@ -106,14 +112,20 @@ public class CameraManager : MonoBehaviour
         {
             SetRoofs(true);
             SetLights(true);
+            materialSwitch.SetFloat("_Material_Switch", 0);
             CaptainCharacter.enabled = false;
+            topDownCam.transform.position = CaptainCharacter.transform.position + topDownCameraOffset;
+            
+            
         }
         else
         {
             SetRoofs(false);
             SetLights(false);
             CaptainCharacter.enabled = true;
+            materialSwitch.SetFloat("_Material_Switch", 1);
         }
     }
+
 
 }
