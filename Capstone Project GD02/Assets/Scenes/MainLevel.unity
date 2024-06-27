@@ -33253,6 +33253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 624421923}
   - component: {fileID: 624421924}
+  - component: {fileID: 624421925}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -33288,6 +33289,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentDay: 0
+--- !u!114 &624421925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624421922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef564a697dbfae48b4b0ec7b4632b60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &631901240
 GameObject:
   m_ObjectHideFlags: 0
@@ -55555,7 +55568,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 48c56d58146cf7347ae4f4da46e89dcb, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 0.75
   Loop: 1
   Mute: 0
   Spatialize: 0
