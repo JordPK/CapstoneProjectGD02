@@ -48,9 +48,8 @@ public class EventManager : MonoBehaviour
     {
         allCrew = FindObjectsOfType<Crew>().ToList();
         startingRoomCount = FindObjectsOfType<Room>().Length;
+        
         AddGoodToPool(AirlockRoomEvents);
-        Debug.Log(AirlockRoomEvents.goodEvents.ElementAt(0));
-        Debug.Log("newline test \n test new line in debugs");
         AddGoodToPool(AmmoRoomEvents);
         AddGoodToPool(CabinsRoomEvents);
         AddGoodToPool(CockpitRoomEvents);
@@ -109,14 +108,14 @@ public class EventManager : MonoBehaviour
 
     public string GenerateGoodEvents()
     {
-        int rand = Random.Range(0, goodEventsPool.Count) + 1;
+        int rand = Random.Range(0, goodEventsPool.Count);
         generatedEvent = goodEventsPool[rand];
         goodEventsPool.RemoveAt(rand);
         return generatedEvent;
     }
     public string GenerateBadEvents()
     {
-        int rand = Random.Range(0, badEventsPool.Count) + 1;
+        int rand = Random.Range(0, badEventsPool.Count);
         generatedEvent = badEventsPool[rand];
         goodEventsPool.RemoveAt(rand);
         //ui manager.instance.eventText.text = generatedEvent; 
@@ -318,6 +317,19 @@ public class EventManager : MonoBehaviour
 
     #region Room Event functions 
 
+    #region Airlock
+    public void BadSpacewalk(bool playerchoice)
+    {
+        if (playerchoice) removeRandomCrew(2);
+        else RemoveResoruce("medicalsupplies", 10);
+    }
+    public void GoodFeeling()
+    {
+        int a = Random.Range(0, allCrew.Count);
+        NavMeshAgent boost = allCrew[a].GetComponent<NavMeshAgent>();
+        StartCoroutine(speedBoost(boost, 15));
+    }
+    #endregion
 
     #region Ammo Room
     public void BadLaugh()
@@ -377,64 +389,23 @@ public class EventManager : MonoBehaviour
 
     #endregion
 
-    #region ShieldRoom
-    
-    public void GoodFastAction()
+    #region Cockpit Room
+    public void GoodMisfortune()
     {
-        
-        AddResoruce("medicalsupplies", 5);
-        AddResoruce("ammo", 15);
+        AddResoruce(randomResrouceSelection(), 15);
+        AddResoruce(randomResrouceSelection(), 15);
         
     }
-    public void BadTour(bool playerchoice)
+    public void BadRoll()
     {
-        AddResoruce("water", 15);
-        AddResoruce("food", 10);
-    }
-    public void BadDefence()
-    {
-        RemoveResoruce("ammo", 25);
-        
-    }
-    public void BadMoon(bool playerchoice)
-    {
-        if (playerchoice) RemoveResoruce("medicalsupplies", 15);
-        else removeRandomRoom(1);
-    }
-    public void BadSuperstitons(bool playerchoice)
-    {
-        if (playerchoice)
+        foreach (var crew in allCrew)
         {
-
-            foreach (var crew in allCrew)
-            {
-                speedDebuff(crew.GetComponent<NavMeshAgent>(), 15);
-
-            }
-        }
-        else
-        {
-            // superstituous riots led to the crew starting fires
-            RemoveResoruce("fuel", 25);
+            StartCoroutine(pauseWork(crew.GetComponent<NavMeshAgent>()));
         }
     }
-    public void BadBlanket(bool playerchoice)
-    {
-        //randomly stops 3 crew from working 
-        for (int i = 0; i <= 3; i++) {
-            int a = Random.Range(0, allCrew.Count);
-            NavMeshAgent stopWorking = allCrew[a].GetComponent<NavMeshAgent>();
-            if (stopWorking.destination != null)
-            {
-                StartCoroutine(pauseWork(stopWorking));
-            }
-        }
-    }
-
 
 
     #endregion
-
     #region foodRoom
     public void BadSpaceStoners(bool playerchoice)
     {
@@ -444,7 +415,7 @@ public class EventManager : MonoBehaviour
 
         else
         {
-            removeRandomCrew(1);
+            removeRandomRoom(1);
         }
     }
     public void BadSnickers(bool playerchoice)
@@ -498,7 +469,6 @@ public class EventManager : MonoBehaviour
 
     }
     #endregion
-
     #region Generator room
     public void GoodLick()
     {
@@ -530,7 +500,6 @@ public class EventManager : MonoBehaviour
 
 
     #endregion
-
     #region Medbay
     public void GoodBreakthrough()
     {
@@ -598,21 +567,60 @@ public class EventManager : MonoBehaviour
     }
 
     #endregion
-
-    #region Cockpit Room
-    public void GoodMisfortune()
+    #region ShieldRoom
+    
+    public void GoodFastAction()
     {
-        AddResoruce(randomResrouceSelection(), 15);
-        AddResoruce(randomResrouceSelection(), 15);
+        
+        AddResoruce("medicalsupplies", 5);
+        AddResoruce("ammo", 15);
         
     }
-    public void BadRoll()
+    public void BadTour(bool playerchoice)
     {
-        foreach (var crew in allCrew)
+        AddResoruce("water", 15);
+        AddResoruce("food", 10);
+    }
+    public void BadDefence()
+    {
+        RemoveResoruce("ammo", 25);
+        
+    }
+    public void BadMoon(bool playerchoice)
+    {
+        if (playerchoice) RemoveResoruce("medicalsupplies", 15);
+        else removeRandomRoom(1);
+    }
+    public void BadSuperstitons(bool playerchoice)
+    {
+        if (playerchoice)
         {
-            StartCoroutine(pauseWork(crew.GetComponent<NavMeshAgent>()));
+
+            foreach (var crew in allCrew)
+            {
+                speedDebuff(crew.GetComponent<NavMeshAgent>(), 15);
+
+            }
+        }
+        else
+        {
+            // superstituous riots led to the crew starting fires
+            RemoveResoruce("fuel", 25);
         }
     }
+    public void BadBlanket(bool playerchoice)
+    {
+        //randomly stops 3 crew from working 
+        for (int i = 0; i <= 3; i++) {
+            int a = Random.Range(0, allCrew.Count);
+            NavMeshAgent stopWorking = allCrew[a].GetComponent<NavMeshAgent>();
+            if (stopWorking.destination != null)
+            {
+                StartCoroutine(pauseWork(stopWorking));
+            }
+        }
+    }
+
 
 
     #endregion
@@ -669,20 +677,6 @@ public class EventManager : MonoBehaviour
         else removeRandomCrew(1); 
     }
 
-    #endregion
-
-    #region Airlock
-    public void BadSpacewalk(bool playerchoice)
-    {
-        if (playerchoice) removeRandomCrew(2);
-        else RemoveResoruce("medicalsupplies", 10);
-    }
-    public void GoodFeeling()
-    {
-        int a = Random.Range(0, allCrew.Count);
-        NavMeshAgent boost = allCrew[a].GetComponent<NavMeshAgent>();
-        StartCoroutine(speedBoost(boost, 15));
-    }
     #endregion
 
 

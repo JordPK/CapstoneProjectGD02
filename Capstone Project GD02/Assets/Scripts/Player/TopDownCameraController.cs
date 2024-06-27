@@ -25,8 +25,8 @@ public class TopDownCameraController : MonoBehaviour
         if (!CameraManager.Instance.isFirstPerson)
         {
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
-            DesktopInput();
-            //MobileInput();
+           // DesktopInput();
+            MobileInput();
 
 #elif UNITY_ANDROID
             //TouchInput();
@@ -45,10 +45,14 @@ public class TopDownCameraController : MonoBehaviour
 
         moveDirection = new Vector3(horizontal, 0, vertical).normalized;  
     }
-
+    bool IsPointerOverUIElement()
+    {
+        return UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
+    }
     void MobileInput()
     {
-        if (Input.GetMouseButton(0))
+
+        if (Input.GetMouseButton(0) && !IsPointerOverUIElement())
         {
             dpad.gameObject.SetActive(true);
 
@@ -86,7 +90,7 @@ public class TopDownCameraController : MonoBehaviour
 
     void TouchInput()
     {
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && !IsPointerOverUIElement())
         {
             dpad.gameObject.SetActive(true);
             theTouch = Input.GetTouch(0);

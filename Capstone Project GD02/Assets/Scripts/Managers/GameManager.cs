@@ -46,14 +46,12 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         ScoreEvaluation.Instance.EvaluateScore(EventManager.Instance.GetPercentage());
-        Debug.Log("GAME OVER");
-        Debug.Log("Grade: " + ScoreEvaluation.Instance.grade); //move this to UI Manager for actual end screen updates
+        UIManager.Instance.GameOverScreen();
     }
 
     public void GameVictory()
     {
         ScoreEvaluation.Instance.EvaluateScore(EventManager.Instance.GetPercentage());
-        Debug.Log("VICTORY -- YOU WIN");
-        Debug.Log("Grade: " + ScoreEvaluation.Instance.grade); //move this to UI Manager for actual end screen updates
+        UIManager.Instance.VictoryScreen();
     }
 }

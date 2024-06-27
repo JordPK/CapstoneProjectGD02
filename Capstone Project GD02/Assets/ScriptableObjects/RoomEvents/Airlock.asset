@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Airlock
   m_EditorClassIdentifier: 
   goodEvents:
-  - The most recent round of jettisoning went so well, the crew are all feeling better
-    despite their current situation.
+  - The most recent round of jettisoning went so well, the crew are buzzing, despite
+    their current situation.  \nAll crew got an adrenaline rush.  (Spped Boost) 
+    Press any Option to Contiue.
   badEvent:
-  - Without a working airlock, the crew have taken to improvising spacewalks for
-    repairs using a bungee cord, a vacuum cleaner, and cunning use of the buddy system
+  - 'Without a working airlock, the crew have taken to improvising spacewalks for
+    repairs using a bungee cord, a vacuum cleaner, and cunning use of the buddy system. 
+    \nOption1: In Space, Buddy System Blunders. (- 2 Crew) \nOption2: The crew got
+    tangled together.  (- 10 Medical Supplies)'

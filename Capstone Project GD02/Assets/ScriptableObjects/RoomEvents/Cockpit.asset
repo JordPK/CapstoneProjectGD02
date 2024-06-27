@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Cockpit
   m_EditorClassIdentifier: 
   goodEvents:
-  - You encountered a derelict spaceship
+  - You encountered a derelict spaceship \n You found stashes of Supplies. (15 resources
+    for 2  random resource Type) Press any Option to Continue.
   badEvent:
-  - Your crew did a barrel roll.
+  - Your ship collided with something and  no way to reset controls, began spinning
+    . \nThe crew got ship sick.Press Continue. (pauseWork) Press any Option to Continue.

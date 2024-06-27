@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goodEvents:
   - A crew member found extra resources tucked away at the back of the storeroom.
+    \n The trail of dust the crates made took 2 hours to clean up.( + 3 to 3 Random
+    Resources) Press any Option to Continue.
   - A crew member was the world champion bag packer and found a perfect way to store
-    good
+    good \n They taught their methods to everyone.(speed Boost) Press any Option
+    to Continue.
   badEvent:
-  - The crew decided to play giant jenga in the the store room
+  - The crew decided to play giant jenga in the the store room \n CRASH! BANG! WALLOP! 
+    (- 2 from 5 Random Resources) Press any Option to Continue.
