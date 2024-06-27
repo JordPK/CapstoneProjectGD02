@@ -46,8 +46,8 @@ public class FPSPlayerMovement : MonoBehaviour
         else
         {
             agent.enabled = true;
-            characterController.enabled = false;
-            capsuleCollider.enabled = true;
+            characterController.enabled = true;
+            capsuleCollider.enabled = false;
         }
         
     }

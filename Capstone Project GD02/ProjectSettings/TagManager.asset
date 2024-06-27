@@ -17,6 +17,7 @@ TagManager:
   - Cell
   - Captain
   - Crew
+  - Light
   layers:
   - Default
   - TransparentFX

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.TerrainTools;
 using UnityEngine;
 
 public class skyboxManager : MonoBehaviour
@@ -76,9 +77,5 @@ public class skyboxManager : MonoBehaviour
 
             yield return null;
         }
-
-        
-
-
     }
 }
