@@ -36246,7 +36246,7 @@ MonoBehaviour:
   startingRoomCount: 0
   goodEventsPool: []
   badEventsPool: []
-  AirlockRoomEvents: {fileID: 0}
+  AirlockRoomEvents: {fileID: 11400000, guid: fad9bd0a70139e540b923917cc6c32e1, type: 2}
   AmmoRoomEvents: {fileID: 11400000, guid: d9521137fffc94547b7f01eb92dfe18e, type: 2}
   CabinsRoomEvents: {fileID: 11400000, guid: e621e78f743e4e24f9e3e787a9a1ea87, type: 2}
   CockpitRoomEvents: {fileID: 11400000, guid: 3b7be7f494b841b469e0a4a0fd725890, type: 2}
@@ -38975,8 +38975,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellList: []
   cratePrefab: {fileID: 155844, guid: 6456a4784f31cab439d29b7e3bb286a4, type: 3}
-  highlightMaterial: {fileID: 0}
-  defaultMat: {fileID: 0}
+  highlightMaterial: {fileID: 2100000, guid: dd8e2392dcfaf4e7b9e3eccabb347a60, type: 2}
+  defaultMat: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   inBuildMode: 0
   overCrate: 0
   spawnCell: {x: 0, y: 0, z: 0}
