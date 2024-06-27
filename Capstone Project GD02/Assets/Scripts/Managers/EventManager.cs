@@ -109,14 +109,14 @@ public class EventManager : MonoBehaviour
 
     public string GenerateGoodEvents()
     {
-        int rand = Random.Range(0, goodEventsPool.Count) + 1;
+        int rand = Random.Range(0, goodEventsPool.Count);
         generatedEvent = goodEventsPool[rand];
         goodEventsPool.RemoveAt(rand);
         return generatedEvent;
     }
     public string GenerateBadEvents()
     {
-        int rand = Random.Range(0, badEventsPool.Count) + 1;
+        int rand = Random.Range(0, badEventsPool.Count);
         generatedEvent = badEventsPool[rand];
         goodEventsPool.RemoveAt(rand);
         //ui manager.instance.eventText.text = generatedEvent; 
