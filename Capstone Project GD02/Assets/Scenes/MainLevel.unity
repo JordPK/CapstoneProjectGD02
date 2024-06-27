@@ -167,6 +167,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beecc0b82a39756408321b223dd09916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!137 &15992071 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 317962137108936661, guid: 3e8cb0b5c8cdcf54b884a7f10b552104,
+    type: 3}
+  m_PrefabInstance: {fileID: 1666918786158727113}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &16327400
 GameObject:
   m_ObjectHideFlags: 0
@@ -35008,7 +35014,7 @@ PrefabInstance:
     - target: {fileID: 1390404113291151353, guid: 5e7738fecf1794266bf527c74e9451ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.631079
+      value: 17.23
       objectReference: {fileID: 0}
     - target: {fileID: 1390404113291151353, guid: 5e7738fecf1794266bf527c74e9451ed,
         type: 3}
@@ -35018,7 +35024,7 @@ PrefabInstance:
     - target: {fileID: 1390404113291151353, guid: 5e7738fecf1794266bf527c74e9451ed,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.758714
+      value: -16.633
       objectReference: {fileID: 0}
     - target: {fileID: 1390404113291151353, guid: 5e7738fecf1794266bf527c74e9451ed,
         type: 3}
@@ -37352,7 +37358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &832575518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37968,7 +37974,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellList: []
   cratePrefab: {fileID: 155844, guid: 6456a4784f31cab439d29b7e3bb286a4, type: 3}
+  highlightMaterial: {fileID: 0}
+  defaultMat: {fileID: 0}
   inBuildMode: 0
+  overCrate: 0
   spawnCell: {x: 0, y: 0, z: 0}
 --- !u!1 &865441606
 GameObject:
@@ -48602,6 +48611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d02c253e85741134ca2538d30d64917d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCam: {fileID: 330585545}
   topDownCam: {fileID: 1098445827}
   fpsCam: {fileID: 1637247502}
   cameraMoveSpeed: 30
@@ -48611,6 +48621,8 @@ MonoBehaviour:
   maxFOV: 80
   FPSCamSensitivity: 100
   roofs: []
+  lights: []
+  CaptainCharacter: {fileID: 15992071}
   isFirstPerson: 0
 --- !u!1 &1580614718
 GameObject:
