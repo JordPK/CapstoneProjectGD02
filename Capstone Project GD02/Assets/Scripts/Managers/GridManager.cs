@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEditor;
 using UnityEngine;
 
@@ -7,12 +8,15 @@ public class GridManager : MonoBehaviour
 {
     public static GridManager Instance;
 
-
     [SerializeField] List<GameObject> cellList;
     [SerializeField] GameObject cratePrefab;
 
-    public bool inBuildMode = false;
+    public Material highlightMaterial;
+    public Material defaultMat;
 
+    public bool inBuildMode = false;
+    public bool overCrate = false;
+    public Vector3 spawnCell;
 
     void Awake()
     {
@@ -32,25 +36,33 @@ public class GridManager : MonoBehaviour
 
     void Update()
     {
+        if (inBuildMode)
+        {
+            spawnCell = ClosestCell();
+            overCrate = IsMouseOverCrate();
+        }
         // Enter/ exit build mode on B key
-        if (Input.GetKeyDown(KeyCode.B) && !inBuildMode)
+        if (Input.GetKeyDown(KeyCode.B))
         {
-            inBuildMode = true;
-
-            Debug.Log("In Build Mode");
-        }
-        else if (inBuildMode && Input.GetKeyDown(KeyCode.B))
-        {
-            inBuildMode = false;
-            Debug.Log("Not in Build mode");
-        }
-        //Vector3 spawnPos = ClosestCell();
-        if(inBuildMode && Input.GetMouseButtonDown(0))
-        {
-            Instantiate(cratePrefab, ClosestCell(), Quaternion.identity);
-            inBuildMode = false;
+            ToggleBuildMode();
         }
 
+        
+        if (inBuildMode && Input.GetMouseButtonDown(0))
+        {
+            if (overCrate)
+            {
+                DestroyCrateUnderMouse();
+                inBuildMode=false;
+            }
+
+            else
+            {
+                Instantiate(cratePrefab, spawnCell, Quaternion.identity);
+                inBuildMode = false;
+            }
+        }
+        
         if (inBuildMode)
         {
             SetCells(true);
@@ -64,29 +76,40 @@ public class GridManager : MonoBehaviour
 
     public Vector3 ClosestCell()
     {
-        GameObject closestCell = null; 
-        GameObject[] cells = GameObject.FindGameObjectsWithTag("Cell");
-
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        Physics.Raycast(ray, out hit, 9999f);
-
-        float closestDistance = float.MaxValue; 
-
-        foreach (GameObject cell in cells)
+        // Reset material of all cells to default
+        foreach (GameObject cell in cellList)
         {
-            
-            float distance = Vector3.Distance(hit.transform.position, cell.transform.position);
-            if (distance < closestDistance)
-            {
-                closestCell = cell;
-                closestDistance = distance;
-                
-            }
+            cell.GetComponent<MeshRenderer>().material = defaultMat;
         }
-           //closestCell.GetComponent<MeshRenderer>().material = 
+
+        if (Physics.Raycast(ray, out hit, 9999f))
+        {
+            GameObject closestCell = null;
+            float closestDistanceSqr = float.MaxValue;
+
+            foreach (GameObject cell in cellList)
+            {
+                float distanceSqr = (cell.transform.position - hit.point).sqrMagnitude;
+                if (distanceSqr < closestDistanceSqr)
+                {
+                    closestCell = cell;
+                    closestDistanceSqr = distanceSqr;
+                }
+            }
+
+            // Set material of closest cell to highlight
+            if (closestCell != null)
+            {
+                closestCell.GetComponent<MeshRenderer>().material = highlightMaterial;
+            }
+
             return closestCell.transform.position;
+        }
+
+        return Vector3.zero;
     }
 
     void SetCells(bool isActive)
@@ -94,9 +117,39 @@ public class GridManager : MonoBehaviour
 
         foreach (GameObject cell in cellList)
         {
-           cell.SetActive(isActive);
+            cell.SetActive(isActive);
         }
     }
+    public void ToggleBuildMode()
+    {
+        inBuildMode = !inBuildMode;
+    }
+    private void DestroyCrateUnderMouse()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
 
+        if (Physics.Raycast(ray, out hit, 9999f))
+        {
+            
+            if (hit.transform.CompareTag("Crate"))
+            {
+                Destroy(hit.transform.gameObject);
+            }
+        }
+    }
+    private bool IsMouseOverCrate()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 9999f))
+        {
+            
+            return hit.transform.CompareTag("Crate");
+        }
+
+        return false;
+    }
 
 }
