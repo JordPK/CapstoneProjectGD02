@@ -26,9 +26,13 @@ public class UIManager : MonoBehaviour
     [Header("MainMenu References")]
     [SerializeField] GameObject mainMenuScreen, newGameScreen, mainMenuOptionsScreen;
 
+    [Header("Tutorial Screens")]
+    [SerializeField] GameObject tutorialScreen1, tutorialScreen2;
+
     [Header("HUD References")]
     [SerializeField] GameObject resourceTrackers, fastForwardSpeedDisplay, optionsScreen, crewCount, timeText, dayText, crosshair;
     [SerializeField] Slider masterSlider, musicSlider, sfxSlider, uiSfxSlider, fpsSlider, tdSlider;
+    [SerializeField] TMP_Text weightGoal, ejectedWeight;
 
     [Header("Inventory Management References")]
     [SerializeField] GameObject crewInventoryUI, storageInventoryUI, confirmButton, confirmEjectButton, itemCountButtons, inventoryScreen;
@@ -70,6 +74,9 @@ public class UIManager : MonoBehaviour
         tdSlider.value = PlayerPrefs.GetFloat("TDSens", 1);
         CameraManager.Instance.cameraMoveSpeed = 30 * tdSlider.value;
 
+
+        tutorialScreen1.SetActive(true);
+        PauseGame();
     }
 
     // Update is called once per frame
@@ -157,13 +164,17 @@ public class UIManager : MonoBehaviour
         }
         Crew[] crewCountArray = FindObjectsOfType<Crew>();
         crewCount.GetComponent<TMP_Text>().text = crewCountArray.Length.ToString();
+
+        weightGoal.text = $"Weight Goal: {WeightManager.Instance.targetWeightLoss} kg";
+        ejectedWeight.text = $"Total Ejected Weight: {WeightManager.Instance.totalEjectedWeight} kg";
+
         yield return new WaitForSeconds(2);
         StartCoroutine(UpdateResourceCount());
     }
 
     IEnumerator UpdateTime()
     {
-        int hrs = Mathf.FloorToInt((TimeManager.Instance.currentTime / TimeManager.Instance.dayDuration) * 24);
+        int hrs = 7 + Mathf.FloorToInt((TimeManager.Instance.currentTime / TimeManager.Instance.dayDuration) * 14);
         Debug.Log(hrs);
         timeText.GetComponent<TMP_Text>().text = $"{hrs}:00";
         dayText.GetComponent<TMP_Text>().text = $"Day {GameManager.Instance.currentDay}";
@@ -243,6 +254,18 @@ public class UIManager : MonoBehaviour
         crosshair.SetActive(active);
     }
 
+    public void TutorialNextPage()
+    {
+        tutorialScreen1.SetActive(false);
+        tutorialScreen2.SetActive(true);
+    }
+
+    public void TutorialClose()
+    {
+        tutorialScreen2.SetActive(false);
+        PlayGame();
+    }
+
 
     #endregion
 
@@ -267,7 +290,7 @@ public class UIManager : MonoBehaviour
         //sets the inventory screen to active
         inventoryScreen.SetActive(true);
         confirmButton.SetActive(true);
-        GameManager.Instance.SetTimescale(0f);
+        PauseGame();
     }
 
     public void ShowEjection()
@@ -299,7 +322,7 @@ public class UIManager : MonoBehaviour
 
         inventoryScreen.SetActive(false);
         confirmButton.SetActive(false);
-        GameManager.Instance.SetTimescale(1f);
+        PlayGame();
     }
 
     
@@ -330,20 +353,20 @@ public class UIManager : MonoBehaviour
     {
         eventBodyText.GetComponent<TMP_Text>().text = bodyText;
         eventScreen.SetActive(true);
-        GameManager.Instance.SetTimescale(0f);
+        PauseGame();
     }
 
     public void EventOption1Button()
     {
         EventManager.Instance.checkEventType(true);
         eventScreen.SetActive(false);
-        GameManager.Instance.SetTimescale(1f);
+        PlayGame();
     }
     public void EventOption2Button()
     {
         EventManager.Instance.checkEventType(false);
         eventScreen.SetActive(false);
-        GameManager.Instance.SetTimescale(1f);
+        PlayGame();
     }
 
     #endregion
@@ -355,12 +378,14 @@ public class UIManager : MonoBehaviour
     {
         gameOverBodyText.GetComponent<TMP_Text>().text = $"Unlucky!\r\n\r\nYour grade for this run was: {ScoreEvaluation.Instance.grade}";
         gameOverScreen.SetActive(true);
+        PauseGame();
     }
 
     public void VictoryScreen()
     {
         victoryBodyText.GetComponent<TMP_Text>().text = $"Congratulations on surviving for 10 days!\r\n\r\nYour grade for this run was: {ScoreEvaluation.Instance.grade}";
         victoryScreen.SetActive(true);
+        PauseGame();
     }
     public void MainMenuButton(int scene)
     {
