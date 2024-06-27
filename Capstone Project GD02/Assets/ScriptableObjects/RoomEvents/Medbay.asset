@@ -13,15 +13,26 @@ MonoBehaviour:
   m_Name: Medbay
   m_EditorClassIdentifier: 
   goodEvents:
-  - 'Your medical staff had a breakthrough. '
+  - Your medical staff had a breakthrough. \n Supplies last longer.Press Continue
+    (+ 25 Medical Supplies) Press any Option to Continue.
   - Due to new techniques your medical team are now twice as productive during working
-    hours.
+    hours. \n  Crew were given a experimental drug, turns out if was powdered water
+    (+ Production Boost) Press any Option to Continue.
   badEvent:
-  - tepped on a nail and got tetanus, they died within a day
-  - 'Paper cut left to the amputation of  a crews arm and both legs. '
-  - "There\u2019s been an outbreak of hypochondriacs due to searching symptoms online"
-  - One of the crews robotic eye malfunctioned and is now always zoomed in on the
-    subatomic level
-  - 'The mess-hall becomes the new Med Bay leading to more inefficient medical tools. '
+  - 'Stepped on a nail and got tetanus... \nOption 1:They died within a day . \nOption
+    2: A simple injection (-5 Medical Supplies)'
+  - 'Paper cut left to the amputation of  a crews arm and both legs. \nOption 1:
+    This would become fatal.  \nOption 2: A plaster would do the trick. (- 1 Medical
+    Supplies)'
+  - "There\u2019s been an outbreak of hypochondriacs due to searching symptoms online.
+    \\nOption1: The crew started following Pandemic Processes. (- Production)  Production
+    \\nOption2: A crew member was actually sick.(- 5 Medical Supplies)"
+  - 'One of the crews robotic eye malfunctioned and is now always zoomed in on the
+    subatomic level.  \nOption1: They got disoriented. (Random Destination): \nOption2:
+    The medical staff, improvised, addapted, and overcame. (- 2 Fuel, - 5 Medical)'
+  - 'The mess-hall becomes the new Med Bay leading to more inefficient medical tools. 
+    \nOption1: All medical procedures cost more  (double Medical Resourses usuage.
+    \nOption2: Hope and Pray.  '
   - "Due to lack of supplies the crew concocted a grenade powered bone saw for the
-    new quicker method of amputation, unfortunately there was \u201Can accident\u201D"
+    new quicker method of amputation,..  \\n Unfortunately during testing there was
+    \u201Can accident\u201D (- 2 Crew)  Press any Option to Continue."

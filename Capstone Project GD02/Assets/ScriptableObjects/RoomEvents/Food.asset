@@ -13,11 +13,18 @@ MonoBehaviour:
   m_Name: Food
   m_EditorClassIdentifier: 
   goodEvents:
-  - Your crew, out of sheer despiration created space smoothies combining powered
+  - 'Your crew, out of sheer despiration created space smoothies combining powered
     nutrietns and recycled water. the past can be injested for a full but light feeling.
+    \n The only crew member willing to drink the smoothies thier  actions became
+    swift and gracefull (+ Speed Boost) '
   badEvent:
-  - "You\u2019re not yourself when you are hungry."
-  - There is an out break of space stoners on board, they all have the munchies,
-    and are looking restless
-  - One of your crew went "spa-ishing" in the airlock to try and catch a better plant,
-    they forgot to put on their space suit due to malnourishment and died.
+  - "You\u2019re not yourself when you are hungry \\nOption 1: Ate a unbranded chocolate
+    bar (-5 food) \\nOption 2: HUNGRY STRIKE ( 1 crew stops working)"
+  - 'There is an out break of space stoners on board, they all have the munchies,
+    and are looking restless \nOption 1: They ate all remaining triangular crips(-25
+    Food) \nOption 2: They pushed a button thinking it was a light switch.(-1 Room) '
+  - 'One of your crew went "spa-ishing" in the airlock to try and catch a better
+    plant, they forgot to put on their space suit due to malnourishment and died.
+    \nOption 1:The space kraken drag them into the depths of the universe (- 1 Crew)
+    \nOption 2: The crew had to use a jetpack to retrieve thr fisherman.(-10 fuel
+    & medical supplies)'

@@ -13,11 +13,17 @@ MonoBehaviour:
   m_Name: Ammo
   m_EditorClassIdentifier: 
   goodEvents:
-  - The best scoundrel always shoots first, one of your crew is a wannabe bandit
+  - 'The best scoundrel always shoots first, one of your crew is a wannabe bandit 
+    \n Taking Insperation from pop culture, a crew member went Solo on a passing
+    ship. (+ Random amount of 1 Random  Resource) Press  any option to Continue. '
   badEvent:
   - "You try to negotiate with your enemies, they laughed at you and opened fire
-    knowing they\u2019d already won. "
-  - Your crew have deicides due to lack of ammo, they shall throw cheese at their
-    enemies. the smellier the better.
-  - 'or two seconds, a crew member suffered excruciating big toe pain. at least they
-    blew up after stubbing it on a missile. '
+    knowing they\u2019d already won.  \\n The attack was fatal (- 1 Crew) Press any
+    optiion to Continue."
+  - 'You are being pursied by pirates, Prepare for battle  \nOption 1: Crew to battle
+    stations,  (- 5 Ammo) : \nOption 2: Due to lack of ammo, they shall throw cheese
+    at their enemies. the smellier the better. (- 2 crew, - 25 Food )'
+  - 'For two seconds, a crew member suffered excruciating big toe pain, at least
+    they blew up after stubbing it on a missile . .  \nOption 1: They begged to die!,
+    to much pain (- 1 crew)  \nOption 2: Doctor performed godlike surgery. (- 50
+    Medical Supplies)'
