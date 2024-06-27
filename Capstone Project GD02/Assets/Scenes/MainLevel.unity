@@ -5,7 +5,7 @@ OcclusionCullingSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_OcclusionBakeSettings:
-    smallestOccluder: 5
+    smallestOccluder: 3
     smallestHole: 0.25
     backfaceThreshold: 100
   m_SceneGUID: 00000000000000000000000000000000
@@ -5437,7 +5437,7 @@ MonoBehaviour:
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 2
+    m_Time: 0.5
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -48627,6 +48627,7 @@ MonoBehaviour:
   mainCam: {fileID: 330585545}
   topDownCam: {fileID: 1098445827}
   fpsCam: {fileID: 1637247502}
+  materialSwitch: {fileID: 2100000, guid: 2ce01831e9f3ae441bb48623e5fbe0c0, type: 2}
   cameraMoveSpeed: 30
   cameraRotateSpeed: 5
   zoomSpeed: 0

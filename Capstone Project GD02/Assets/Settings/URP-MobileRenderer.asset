@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62c9c65cf3354c93be831c8bc075510, type: 3}
   m_Name: SSAO
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   m_Shader: {fileID: 4800000, guid: 0849e84e3d62649e8882e9d6f056a017, type: 3}
   m_Settings:
     Downsample: 0
@@ -20,7 +20,7 @@ MonoBehaviour:
     Source: 1
     NormalSamples: 1
     Intensity: 0.5
-    DirectLightingStrength: 0.971
+    DirectLightingStrength: 0.25
     Radius: 0.25
     SampleCount: 12
 --- !u!114 &11400000
@@ -33,7 +33,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de640fe3d0db1804a85f9fc8f5cadab6, type: 3}
-  m_Name: URP-HighFidelity-Renderer
+  m_Name: URP-MobileRenderer
   m_EditorClassIdentifier: 
   debugShaders:
     debugReplacementPS: {fileID: 4800000, guid: cf852408f2e174538bcd9b7fda1c5ae7,
@@ -74,8 +74,8 @@ MonoBehaviour:
     failOperation: 0
     zFailOperation: 0
   m_ShadowTransparentReceive: 1
-  m_RenderingMode: 1
-  m_DepthPrimingMode: 1
+  m_RenderingMode: 0
+  m_DepthPrimingMode: 0
   m_CopyDepthMode: 0
   m_AccurateGbufferNormals: 0
   m_ClusteredRendering: 0
