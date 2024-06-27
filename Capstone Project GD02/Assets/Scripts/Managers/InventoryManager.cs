@@ -48,12 +48,14 @@ public class InventoryManager : MonoBehaviour
     //subtracts the item from the temporary crew member's inventory and adds it to the temporary storage inventory
     public void SubtractItemFromCrew(int itemIndex, int itemCount)
     {
+        
         //checks to make sure that the item transfer will not result in a number below 0
         if (temporaryCrewInventory[itemIndex] - itemCount >= 0)
         {
             temporaryCrewInventory[itemIndex] -= itemCount;
             temporaryStorageInventory[itemIndex] += itemCount;
         }
+        
     }
 
     //called when the confirm button is pressed

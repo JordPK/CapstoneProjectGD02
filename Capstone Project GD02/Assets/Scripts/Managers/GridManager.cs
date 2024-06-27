@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEditor;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ public class GridManager : MonoBehaviour
     [SerializeField] GameObject cratePrefab;
 
     public bool inBuildMode = false;
-
+    public Vector3 spawnCell;
 
     void Awake()
     {
@@ -32,22 +33,18 @@ public class GridManager : MonoBehaviour
 
     void Update()
     {
+        
+        if (inBuildMode) { spawnCell = ClosestCell(); }
         // Enter/ exit build mode on B key
-        if (Input.GetKeyDown(KeyCode.B) && !inBuildMode)
+        if (Input.GetKeyDown(KeyCode.B))
         {
-            inBuildMode = true;
-
-            Debug.Log("In Build Mode");
+            ToggleBuildMode();
         }
-        else if (inBuildMode && Input.GetKeyDown(KeyCode.B))
-        {
-            inBuildMode = false;
-            Debug.Log("Not in Build mode");
-        }
+       
         //Vector3 spawnPos = ClosestCell();
         if(inBuildMode && Input.GetMouseButtonDown(0))
         {
-            Instantiate(cratePrefab, ClosestCell(), Quaternion.identity);
+            Instantiate(cratePrefab, spawnCell, Quaternion.identity);
             inBuildMode = false;
         }
 
@@ -64,29 +61,28 @@ public class GridManager : MonoBehaviour
 
     public Vector3 ClosestCell()
     {
-        GameObject closestCell = null; 
-        GameObject[] cells = GameObject.FindGameObjectsWithTag("Cell");
-
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        Physics.Raycast(ray, out hit, 9999f);
-
-        float closestDistance = float.MaxValue; 
-
-        foreach (GameObject cell in cells)
+        if (Physics.Raycast(ray, out hit, 9999f))
         {
-            
-            float distance = Vector3.Distance(hit.transform.position, cell.transform.position);
-            if (distance < closestDistance)
+            GameObject closestCell = null;
+            float closestDistanceSqr = float.MaxValue;
+
+            foreach (GameObject cell in cellList)
             {
-                closestCell = cell;
-                closestDistance = distance;
-                
+                float distanceSqr = (cell.transform.position - hit.point).sqrMagnitude;
+                if (distanceSqr < closestDistanceSqr)
+                {
+                    closestCell = cell;
+                    closestDistanceSqr = distanceSqr;
+                }
             }
-        }
-           //closestCell.GetComponent<MeshRenderer>().material = 
+
             return closestCell.transform.position;
+        }
+
+        return Vector3.zero;
     }
 
     void SetCells(bool isActive)
@@ -97,6 +93,9 @@ public class GridManager : MonoBehaviour
            cell.SetActive(isActive);
         }
     }
-
+    public void ToggleBuildMode()
+    {
+        inBuildMode = !inBuildMode;
+    }
 
 }
