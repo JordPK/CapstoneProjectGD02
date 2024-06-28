@@ -27,7 +27,7 @@ public class TimeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        NewWeightGoal();
     }
 
     // Update is called once per frame
@@ -35,12 +35,13 @@ public class TimeManager : MonoBehaviour
     {
         //DisplayTimer();
         DayCycle();
+
     }
 
     public void DayCycle()
     {
         currentTime += Time.deltaTime;
-
+       
         // if currentTime hits dayDuration add increase the day by 1
         if (currentTime >= dayDuration)
         {
@@ -59,7 +60,7 @@ public class TimeManager : MonoBehaviour
             NewWeightGoal();
             GenerateRandomEvent();
 
-            WeightManager.Instance.targetWeightLoss = WeightManager.Instance.generateDayWeightLossTarget();
+            
             //Debug.Log(GameManager.Instance.currentDay);
         }
     }
@@ -76,16 +77,17 @@ public class TimeManager : MonoBehaviour
         // removing resources for each crew member
         Crew[] currentCrew = FindObjectsOfType<Crew>();
     
-            EventManager.Instance.RemoveResoruce("food", 1 * currentCrew.Length);
-            EventManager.Instance.RemoveResoruce("water", 1 * currentCrew.Length);
-            ResourceNegativeCheck();
+        EventManager.Instance.RemoveResoruce("food", 1 * currentCrew.Length);
+        EventManager.Instance.RemoveResoruce("water", 1 * currentCrew.Length);
+        ResourceNegativeCheck();
     }
 
     public void NewWeightGoal()
     {
         // update new weight goal - weight manager -
-       dailyEject =  WeightManager.Instance.generateDayWeightLossTarget();
-       
+        int newGoal = WeightManager.Instance.generateDayWeightLossTarget();
+        WeightManager.Instance.targetWeightLoss = newGoal;
+        dailyEject = newGoal;
     }
 
     public void GenerateRandomEvent()

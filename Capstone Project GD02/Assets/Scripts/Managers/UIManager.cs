@@ -47,6 +47,7 @@ public class UIManager : MonoBehaviour
     private int fastForwardIndex = 3;
     private int itemCount = 1;
     public int[] resourceCounts = new int[5];
+    public bool eventActive;
 
     // Start is called before the first frame update
     void Start()
@@ -175,7 +176,7 @@ public class UIManager : MonoBehaviour
     IEnumerator UpdateTime()
     {
         int hrs = 7 + Mathf.FloorToInt((TimeManager.Instance.currentTime / TimeManager.Instance.dayDuration) * 14);
-        Debug.Log(hrs);
+        
         timeText.GetComponent<TMP_Text>().text = $"{hrs}:00";
         dayText.GetComponent<TMP_Text>().text = $"Day {GameManager.Instance.currentDay}";
 
@@ -351,21 +352,41 @@ public class UIManager : MonoBehaviour
 
     public void GetEventDescription(string bodyText)
     {
-        eventBodyText.GetComponent<TMP_Text>().text = bodyText;
+        string temp = bodyText;
+        temp = temp.Replace("\\n", "\n");
+        eventBodyText.GetComponent<TMP_Text>().text = temp;
+        eventActive = true;
         eventScreen.SetActive(true);
+        if (CameraManager.Instance.isFirstPerson)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
         PauseGame();
     }
 
     public void EventOption1Button()
     {
+        eventActive = false;
         EventManager.Instance.checkEventType(true);
         eventScreen.SetActive(false);
+        if (CameraManager.Instance.isFirstPerson)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
         PlayGame();
     }
     public void EventOption2Button()
     {
+        eventActive = false;
         EventManager.Instance.checkEventType(false);
         eventScreen.SetActive(false);
+        if (CameraManager.Instance.isFirstPerson)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
         PlayGame();
     }
 

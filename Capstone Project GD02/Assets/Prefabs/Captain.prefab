@@ -120,8 +120,8 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: bd5105e1f39844b4daded70961d0174f, type: 2}
-  - {fileID: 2100000, guid: 06eb4e637b7ef614e9265f48c542664b, type: 2}
-  - {fileID: 2100000, guid: d2c8f925eb40c4748811efdd803f25c6, type: 2}
+  - {fileID: 2100000, guid: b4a5024a357b1c04e91545dd98e0b43a, type: 2}
+  - {fileID: 2100000, guid: ded33b67229badf439779781f2000945, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -909,9 +909,9 @@ CapsuleCollider:
   m_GameObject: {fileID: 317962137114147547}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.65203434
-  m_Height: 2.4591658
+  m_Enabled: 1
+  m_Radius: 1.2
+  m_Height: 2.6
   m_Direction: 1
   m_Center: {x: 0.021709502, y: 1.1638354, z: -0.17916799}
 --- !u!195 &317962137114246267
@@ -982,10 +982,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b95694f5e01b06469d14b042ed9289b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 10
   sprintSpeedMultiplier: 0
-  jumpForce: 5
-  gravityMultiplier: 0
+  jumpForce: 1.5
+  gravityMultiplier: 2
   characterController: {fileID: 1666918785868686385}
   fpsCam: {fileID: 0}
   gravity: -9.81
@@ -1095,7 +1095,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666918784574481861}
   m_LocalRotation: {x: -0, y: -0.00450287, z: -0, w: 0.99998987}
-  m_LocalPosition: {x: -0.10037136, y: 1.9790626, z: 0.19959271}
+  m_LocalPosition: {x: -0.10037136, y: 1.9790626, z: 0.308}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

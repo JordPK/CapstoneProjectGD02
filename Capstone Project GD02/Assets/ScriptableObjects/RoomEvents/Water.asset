@@ -18,8 +18,8 @@ MonoBehaviour:
     activity.(Production Boost) Press any Option to Continue.
   badEvent:
   - "With no fresh water source, the crew have started taking after ancient survival
-    expert Bear Grylls by drinking their own urine. \uF746\\nOption1: Nothing good
-    came from this.(-25 Medical Supplies & 1 crew stops working) \\nOption 2: They
-    told no one and died of kidney failure.(-1 Crew)"
+    expert Bear Grylls by drinking their own urine. \"\uF746\\n\"Option1: Nothing
+    good came from this.(-25 Medical Supplies & 1 crew stops working) \"\\n\"Option
+    2: They told no one and died of kidney failure.(-1 Crew)"
   - 'The crew invented powdered water, .....\nOption 1: just add water (-2 Water)
     \nOption 2: Drink it. (-1 Crew)'

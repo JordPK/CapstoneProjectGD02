@@ -78,6 +78,8 @@ public class GridManager : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
+        int interactionRange;
+        interactionRange = CameraManager.Instance.isFirstPerson ? 5 : 9999;
 
         // Reset material of all cells to default
         foreach (GameObject cell in cellList)
@@ -85,7 +87,7 @@ public class GridManager : MonoBehaviour
             cell.GetComponent<MeshRenderer>().material = defaultMat;
         }
 
-        if (Physics.Raycast(ray, out hit, 9999f))
+        if (Physics.Raycast(ray, out hit, interactionRange))
         {
             GameObject closestCell = null;
             float closestDistanceSqr = float.MaxValue;

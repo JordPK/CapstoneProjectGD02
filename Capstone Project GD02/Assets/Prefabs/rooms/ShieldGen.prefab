@@ -224,7 +224,7 @@ MonoBehaviour:
   maxCrew: 5
   crewMembers: []
   roomEjected: 0
-  roomWeight: 550
+  roomWeight: 350
   inven: {fileID: 0}
 --- !u!65 &2215111750401295696
 BoxCollider:

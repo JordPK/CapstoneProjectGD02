@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class WeightManager : MonoBehaviour
 {
@@ -13,6 +15,9 @@ public class WeightManager : MonoBehaviour
 
     public List<Room> rooms = new List<Room>();
 
+    public Image panelWeight;
+    public Material goalMetMat;
+    Material firstMat;
     [Header("Resouce Weights")]
     public int foodWeight = 1;
     public int waterWeight = 1;
@@ -33,7 +38,7 @@ public class WeightManager : MonoBehaviour
 
     void Start()
     {
-        
+        firstMat = panelWeight.GetComponent<Material>();
         rooms = FindObjectsOfType<Room>().ToList<Room>();
         foreach (Room room in rooms)
         {
@@ -46,9 +51,9 @@ public class WeightManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
 
-
+        panelWeight.material = metTargetWeightLoss() ? firstMat : goalMetMat;
+      
 
     }
 
@@ -60,7 +65,7 @@ public class WeightManager : MonoBehaviour
 
     public int generateDayWeightLossTarget()
     {
-        return Random.Range(1, totalWeight);
+        return Random.Range(1, (totalWeight / (16 - GameManager.Instance.currentDay) ));
      
     }
 
