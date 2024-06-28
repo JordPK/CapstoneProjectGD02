@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorSFX: {fileID: 8300000, guid: b0b0d9bf0f2d51e488f44bdaeff71e7f, type: 3}
+  room: {fileID: 0}
 --- !u!64 &6461558
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -173,7 +174,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 29.87
+  MaxDistance: 35
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0

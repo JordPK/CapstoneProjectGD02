@@ -19,7 +19,7 @@ public class mouseLook : MonoBehaviour
 
     void Update()
     {
-        if (CameraManager.Instance.isFirstPerson)
+        if (CameraManager.Instance.isFirstPerson && !UIManager.Instance.eventActive)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;

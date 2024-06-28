@@ -10,6 +10,7 @@ public class Room : MonoBehaviour
 
     public IndividualInventoryScript inven;
     detachAudio detachAudioSFX;
+
     void Start()
     {
         crewMembers = new List<Crew>();
@@ -96,6 +97,7 @@ public class Room : MonoBehaviour
     }
     public void jettisonCargo()
     {
+        detachAudioSFX.playJettisonSound();
         int[] inven = GetComponent<IndividualInventoryScript>().inventory;
         for (int i = 0; i < inven.Length; i++)
         {

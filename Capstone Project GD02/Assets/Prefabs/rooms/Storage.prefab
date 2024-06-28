@@ -347,7 +347,7 @@ MonoBehaviour:
   maxCrew: 5
   crewMembers: []
   roomEjected: 0
-  roomWeight: 200
+  roomWeight: 350
   inven: {fileID: 0}
 --- !u!65 &4018964064084145918
 BoxCollider:
@@ -375,6 +375,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: 0000000000000000000000000000000000000000
+  isFull: 0
+  maxSize: 0
 --- !u!114 &3749054550086790281
 MonoBehaviour:
   m_ObjectHideFlags: 0
