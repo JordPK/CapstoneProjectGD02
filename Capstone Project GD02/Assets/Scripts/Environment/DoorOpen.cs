@@ -34,7 +34,7 @@ public class DoorOpen : MonoBehaviour
         if (other.tag == "Crew" && room.activeSelf || other.tag == "Captain" && room.activeSelf)
         {
             anim.SetBool("character_nearby", true);
-            audioSource.PlayOneShot(doorSFX, .7f);
+            audioSource.PlayOneShot(doorSFX, .5f);
             
         } 
     }
