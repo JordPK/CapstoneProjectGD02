@@ -401,7 +401,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7276523892695232725}
         m_TargetAssemblyTypeName: Room, Assembly-CSharp
-        m_MethodName: RoomDetached
+        m_MethodName: EjectRoomConfirmation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

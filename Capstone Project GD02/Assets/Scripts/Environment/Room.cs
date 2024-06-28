@@ -157,5 +157,10 @@ public class Room : MonoBehaviour
         EventManager.Instance.RemoveGoodFromPool(roomEventData);
     }
 
+    public void EjectRoomConfirmation()
+    {
+        UIManager.Instance.AreYouSure(gameObject);
+    }
+
 }
 

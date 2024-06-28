@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject tutorialScreen1, tutorialScreen2;
 
     [Header("HUD References")]
-    [SerializeField] GameObject resourceTrackers, fastForwardSpeedDisplay, optionsScreen, crewCount, timeText, dayText, crosshair;
+    [SerializeField] GameObject resourceTrackers, fastForwardSpeedDisplay, optionsScreen, crewCount, timeText, dayText, crosshair, areYouSureScreen;
     [SerializeField] Slider masterSlider, musicSlider, sfxSlider, uiSfxSlider, fpsSlider, tdSlider;
     [SerializeField] TMP_Text weightGoal, ejectedWeight;
 
@@ -43,6 +43,7 @@ public class UIManager : MonoBehaviour
     [Header("Game Over and Victory References")]
     [SerializeField] GameObject gameOverScreen, gameOverBodyText, victoryScreen, victoryBodyText;
 
+    private GameObject ejectReference;
     private GameObject crewMember, storage, airlock;
     private int fastForwardIndex = 3;
     private int itemCount = 1;
@@ -389,6 +390,32 @@ public class UIManager : MonoBehaviour
         }
         PlayGame();
     }
+
+    #endregion
+
+    #region Ejecting Rooms
+
+    public void AreYouSure(GameObject roomReference)
+    {
+        ejectReference = roomReference;
+        areYouSureScreen.SetActive(true);
+        PauseGame();
+    }
+
+    public void YesButton()
+    {
+        ejectReference.GetComponent<Room>().RoomDetached();
+        areYouSureScreen.SetActive(false);
+        PlayGame();
+    }
+
+    public void NoButton()
+    {
+        ejectReference = null;
+        areYouSureScreen.SetActive(false);
+        PlayGame();
+    }
+
 
     #endregion
 
