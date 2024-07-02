@@ -5435,7 +5435,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Option 1 Text
+  m_text: Option 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -31861,7 +31861,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Option 2 Text
+  m_text: Option 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -34975,7 +34975,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &579527687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35892,7 +35892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22951bfe8a273c244bd4431f78ab4d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentDay: 0
+  currentDay: 1
 --- !u!114 &624421925
 MonoBehaviour:
   m_ObjectHideFlags: 0
