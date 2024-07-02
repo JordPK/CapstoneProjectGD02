@@ -116,7 +116,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0.112
     - _GlossyReflections: 0
-    - _Material_Switch: 0
+    - _Material_Switch: 1
     - _Metallic: 0
     - _Metallic_1: 0
     - _Metallic_2: 1
